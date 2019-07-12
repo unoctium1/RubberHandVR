@@ -11,39 +11,31 @@ namespace HandVR
 
     public class ButtonGameManager : MonoBehaviour
     {
+
         [SerializeField]
         private Image panel;
         [SerializeField]
         private Color GreenColor, RedColor;
 
         [SerializeField]
-        private Canvas headsetCanvas;
+        private TextMesh label;
 
-        // Start is called before the first frame update
+
         void Start()
         {
-            headsetCanvas.renderMode = RenderMode.ScreenSpaceCamera;
-            headsetCanvas.worldCamera = Camera.main;
+            label.gameObject.SetActive(false);
         }
 
-        // Update is called once per frame
-        void Update()
+        IEnumerator WaitForButtonPress(Buttons expectedButton)
         {
-
+            yield return null;
         }
 
-        public void LeftButtonPressed()
-        {
-            Debug.Log("Left");
-            panel.color = RedColor;
-        }
+    }
 
-        public void RightButtonPressed()
-        {
-            Debug.Log("Right");
-            panel.color = GreenColor;
-        }
-
-
+    public enum Buttons
+    {
+        LEFT,
+        RIGHT
     }
 }

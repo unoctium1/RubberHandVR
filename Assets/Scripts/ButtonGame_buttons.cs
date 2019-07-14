@@ -7,7 +7,7 @@ using UnityEngine;
 namespace HandVR {
     namespace ButtonGame
     {
-        public class ButtonGame_buttons : MonoBehaviour
+        internal class ButtonGame_buttons : MonoBehaviour
         {
             private InteractionButton button;
 

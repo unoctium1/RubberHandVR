@@ -468,7 +468,7 @@ MonoBehaviour:
   panel: {fileID: 8362507514795366573}
   GreenColor: {r: 0, g: 1, b: 0.125, a: 1}
   RedColor: {r: 1, g: 0, b: 0, a: 1}
-  label: {fileID: 409201714572706662}
+  resultLabel: {fileID: 409201714572706662}
   tests: 50
 --- !u!1 &7682212248340572817
 GameObject:

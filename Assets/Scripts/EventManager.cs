@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
+
 namespace HandVR
 {
     public class EventManager : MonoBehaviour
@@ -11,7 +12,7 @@ namespace HandVR
         private static EventManager eventManager;
 
 
-        public static EventManager instance
+        public static EventManager Instance
         {
             get
             {
@@ -21,7 +22,7 @@ namespace HandVR
 
                     if (!eventManager)
                     {
-                        Debug.LogError("There needs to be one active buttongamemanager script on a GameObject in your scene.");
+                        Debug.LogError("There needs to be one active EventManager script on a GameObject in your scene.");
                     }
                     else
                     {
@@ -44,7 +45,7 @@ namespace HandVR
         public static void StartListening(string eventName, UnityAction listener)
         {
             UnityEvent thisEvent = null;
-            if (instance.eventDictionary.TryGetValue(eventName, out thisEvent))
+            if (Instance.eventDictionary.TryGetValue(eventName, out thisEvent))
             {
                 thisEvent.AddListener(listener);
             }
@@ -52,14 +53,14 @@ namespace HandVR
             {
                 thisEvent = new UnityEvent();
                 thisEvent.AddListener(listener);
-                instance.eventDictionary.Add(eventName, thisEvent);
+                Instance.eventDictionary.Add(eventName, thisEvent);
             }
         }
         public static void StopListening(string eventName, UnityAction listener)
         {
             if (eventManager == null) return;
             UnityEvent thisEvent = null;
-            if (instance.eventDictionary.TryGetValue(eventName, out thisEvent))
+            if (Instance.eventDictionary.TryGetValue(eventName, out thisEvent))
             {
                 thisEvent.RemoveListener(listener);
             }
@@ -68,7 +69,7 @@ namespace HandVR
         public static void TriggerEvent(string eventName)
         {
             UnityEvent thisEvent = null;
-            if (instance.eventDictionary.TryGetValue(eventName, out thisEvent))
+            if (Instance.eventDictionary.TryGetValue(eventName, out thisEvent))
             {
                 thisEvent.Invoke();
             }

@@ -10,7 +10,7 @@ namespace HandVR
     namespace ButtonGame
     {
 
-        public class ButtonGameManager : MonoBehaviour
+        public class ButtonGameManager : MonoBehaviour, ITest
         {
 
             [SerializeField]
@@ -19,39 +19,74 @@ namespace HandVR
             private Color GreenColor, RedColor;
 
             [SerializeField]
-            private TextMesh label;
+            private TextMesh resultLabel;
 
             [SerializeField]
             private int tests;
 
-            private IList<(float, bool)> results;
+            //private const string _label = "Button Pressing Reaction Test";
 
-            public Buttons LastPressedButton { get; private set; }
+            internal Buttons LastPressedButton { get; private set; }
 
-            void Start()
+            #region UNITY_MONOBEHAVIOUR_METHODS
+            private void Start()
             {
-                label.gameObject.SetActive(false);
-                results = new List<(float, bool)>();
-                EventManager.StartListening("LeftButton", Left_UpdateButton);
-                EventManager.StartListening("RightButton", Right_UpdateButton);
-                StartCoroutine(StartHandGame(tests));
+
+                Results = new List<ITestData>();
+                
+                //StartCoroutine(StartHandGame(tests));
             }
 
-            IEnumerator StartHandGame(int _tests)
+            private void OnEnable()
             {
+                EventManager.StartListening("LeftButton", Left_UpdateButton);
+                EventManager.StartListening("RightButton", Right_UpdateButton);
+            }
+
+            private void OnDisable()
+            {
+                EventManager.StopListening("LeftButton", Left_UpdateButton);
+                EventManager.StopListening("RightButton", Right_UpdateButton);
+            }
+            #endregion //UNITY_MONOBEHAVIOUR_METHODS
+
+            #region PUBLIC
+            public IList<ITestData> Results { get; private set; }
+
+            //public string Label => _label;
+
+            public void StopTest()
+            {
+                StopAllCoroutines();
+            }
+
+            public void SetNumTests(int numTests)
+            {
+                tests = numTests;
+            }
+
+
+            public IEnumerator StartTest()
+            {
+                resultLabel.gameObject.SetActive(false);
                 yield return new WaitForSeconds(3f);
-                for (int i = 0; i < _tests; i++)
+                for (int i = 0; i < tests; i++)
                 {
                     Buttons b = (Buttons)Random.Range(0, 2);
                     yield return HandleButton(b);
-                    Debug.Log(results[results.Count-1]);
+                    //Debug.Log(Results[Results.Count-1]);
                 }
-                
-            }
+                resultLabel.text = "Finished!";
+                resultLabel.gameObject.SetActive(true);
+                yield return new WaitForSeconds(0.2f);
 
-            IEnumerator HandleButton(Buttons expectedButton)
+            }
+            #endregion //PUBLIC
+
+            #region PRIVATE_METHODS
+            private IEnumerator HandleButton(Buttons expectedButton)
             {
-                label.gameObject.SetActive(false);
+                resultLabel.gameObject.SetActive(false);
                 if (expectedButton == Buttons.LEFT)
                 {
                     panel.color = RedColor;
@@ -63,37 +98,50 @@ namespace HandVR
                 }
                 float _time = Time.time;
                 yield return new ButtonPressedYield();
-                if(LastPressedButton == expectedButton)
+                float t = Time.time - _time;
+                if (LastPressedButton == expectedButton)
                 {
-                    results.Add((Time.time - _time, true));
-                    label.text = "Correct";
+                    Results.Add(new ButtonData{time = t, correct = true });
+                    resultLabel.text = "Correct";
                 }
                 else
                 {
-                    results.Add((Time.time - _time, false));
-                    label.text = "Incorrect";
+                    Results.Add(new ButtonData { time = t, correct = false });
+                    resultLabel.text = "Incorrect";
                 }
-                label.gameObject.SetActive(true);
+                resultLabel.gameObject.SetActive(true);
                 yield return new WaitForSeconds(0.2f);
 
 
             }
 
-            public void Left_UpdateButton()
+            private void Left_UpdateButton()
             {
                 Debug.Log("Left pressed");
                 LastPressedButton = Buttons.LEFT;
             }
 
-            public void Right_UpdateButton()
+            private void Right_UpdateButton()
             {
                 Debug.Log("Right pressed");
                 LastPressedButton = Buttons.RIGHT;
             }
+            #endregion //PRIVATE_METHODS
 
         }
 
-        public enum Buttons
+        public struct ButtonData : ITestData
+        {
+            public float time;
+            public bool correct;
+
+            public override string ToString()
+            {
+                return (time, correct).ToString();
+            }
+        }
+
+        internal enum Buttons
         {
             LEFT,
             RIGHT

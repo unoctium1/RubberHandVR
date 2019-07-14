@@ -5,9 +5,10 @@ namespace HandVR
 {
     namespace ButtonGame
     {
-        public class ButtonPressedYield : CustomYieldInstruction
+        internal class ButtonPressedYield : CustomYieldInstruction
         {
             private bool _isPressed = false;
+
             public ButtonPressedYield(Buttons b){
                 if(b == Buttons.LEFT)
                 {

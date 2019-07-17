@@ -259,6 +259,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Explanation Text - interactable
       objectReference: {fileID: 0}
+    - target: {fileID: 3192955225673420407, guid: 6623d4052a12c0945841896e27f6eee1,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3190122990767214625, guid: 6623d4052a12c0945841896e27f6eee1,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -430,7 +435,7 @@ PrefabInstance:
     - target: {fileID: 3206003244557091156, guid: 1058e94dde6f91e408fb90048539d8d6,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0
+      value: 1000
       objectReference: {fileID: 0}
     - target: {fileID: 3206003244557091156, guid: 1058e94dde6f91e408fb90048539d8d6,
         type: 3}
@@ -481,6 +486,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3718403510958508904, guid: 1058e94dde6f91e408fb90048539d8d6,
+        type: 3}
+      propertyPath: m_Depth
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1058e94dde6f91e408fb90048539d8d6, type: 3}
@@ -549,21 +559,6 @@ PrefabInstance:
     - target: {fileID: 2580189551856498526, guid: 635b21d9eafd49f409946630fd817c57,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2474380237227615828, guid: 635b21d9eafd49f409946630fd817c57,
-        type: 3}
-      propertyPath: _frameOptimization
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2474303653579065144, guid: 635b21d9eafd49f409946630fd817c57,
-        type: 3}
-      propertyPath: ModelPool.Array.data[1].IsLeftToBeSpawned
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2474303653579065144, guid: 635b21d9eafd49f409946630fd817c57,
-        type: 3}
-      propertyPath: ModelPool.Array.data[1].IsRightToBeSpawned
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []

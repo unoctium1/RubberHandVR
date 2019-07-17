@@ -1,37 +1,44 @@
-﻿using System.Collections;
+﻿using Leap.Unity.Interaction;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 namespace HandVR
 {
-    namespace ButtonGame
-    {
-        internal class ButtonPressedYield : CustomYieldInstruction
+	internal class ButtonPressedYield : CustomYieldInstruction
+	{
+		private bool _isPressed = false;
+        private InteractionButton button;
+
+		public ButtonPressedYield()
+		{
+			EventManager.StartListening("ButtonPressed", HandleButtonClick);
+		}
+
+		public ButtonPressedYield(InteractionButton b)
+		{
+            button = b;
+            button.OnPress += HandleButtonClick;
+		}
+
+        ~ButtonPressedYield()
         {
-            private bool _isPressed = false;
-
-            public ButtonPressedYield(Buttons b){
-                if(b == Buttons.LEFT)
-                {
-                    EventManager.StartListening("LeftButton", HandleButtonClick);
-                }
-                else
-                {
-                    EventManager.StartListening("RightButton", HandleButtonClick);
-                }
-            }
-            public ButtonPressedYield()
+            if (button == null)
             {
-                EventManager.StartListening("ButtonPressed", HandleButtonClick);
+                EventManager.StopListening("ButtonPressed", HandleButtonClick);
             }
-
-            public void HandleButtonClick()
+            else
             {
-                _isPressed = true;
+                button.OnPress -= HandleButtonClick;
             }
-
-            public override bool keepWaiting => !_isPressed;
-
         }
-    }
+
+		public void HandleButtonClick()
+		{
+			_isPressed = true;
+		}
+
+		public override bool keepWaiting => !_isPressed;
+
+	}
 }
 

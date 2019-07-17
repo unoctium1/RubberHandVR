@@ -12,7 +12,7 @@ namespace HandVR
 
         public class ButtonGameManager : MonoBehaviour, ITest
         {
-
+            const string instructions = "When the test begins, the central panel will turn either green or red. As fast as you can, try to push down the corresponding green or red button. Text on the screen will indicate if you are correct. The test is over when the text displays 'Finished!'";
             [SerializeField]
             private Image panel;
             [SerializeField]
@@ -69,7 +69,9 @@ namespace HandVR
             public IEnumerator StartTest()
             {
                 resultLabel.gameObject.SetActive(false);
-                yield return new WaitForSeconds(3f);
+                gameObject.SetActive(false);
+                yield return new InteractableText.TextMessageYield(instructions);
+                this.gameObject.SetActive(true);
                 for (int i = 0; i < tests; i++)
                 {
                     Buttons b = (Buttons)Random.Range(0, 2);

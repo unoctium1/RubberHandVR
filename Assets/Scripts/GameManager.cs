@@ -14,7 +14,10 @@ namespace HandVR
         private Test[] tests;
 
         [SerializeField]
-        private GamePanel panel;
+        private GameObject panelPrefab;
+        [SerializeField]
+        private GameObject panelParent;
+        private IList<GamePanel> panels;
 
         //private IList<ITest<ITestData>> tests;
 
@@ -30,8 +33,20 @@ namespace HandVR
                 Destroy(this);
             }
 
-            panel.Init(tests[0].testObject, tests[0].testName);
-            Debug.Log("Initialized game panel");
+            panels = new List<GamePanel>();
+
+            float offset = 0;
+            foreach(Test t in tests)
+            {
+                GameObject p = Instantiate(panelPrefab, panelParent.transform);
+                RectTransform rt = p.GetComponent<RectTransform>();
+                Vector3 pos = rt.position;
+                pos.y += offset;
+                offset += rt.rect.height;
+                GamePanel panel = p.GetComponent<GamePanel>();
+                panel.Init(t.testObject, t.testName);
+                panels.Add(panel);
+            }
         }
 
         [System.Serializable]

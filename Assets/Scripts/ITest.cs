@@ -10,10 +10,6 @@ namespace HandVR
     /// </summary>
     public interface ITest
     {
-        /*/// <summary>
-        /// Returns name of this test
-        /// </summary>
-        string Label { get; }*/
 
         /// <summary>
         /// Returns results of test

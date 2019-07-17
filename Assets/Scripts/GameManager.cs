@@ -12,12 +12,34 @@ namespace HandVR
 
         [SerializeField]
         private Test[] tests;
+        [SerializeField]
+        private Modifier[] modifiers;
 
         [SerializeField]
         private GameObject panelPrefab;
         [SerializeField]
         private GameObject panelParent;
         private IList<GamePanel> panels;
+
+        [SerializeField]
+        private GameObject leftHand;
+        [SerializeField]
+        private GameObject rightHand;
+
+        private bool isRightHand = true;
+
+        public GameObject ActiveHand { get
+            {
+                if (isRightHand)
+                {
+                    return rightHand;
+                }
+                else
+                {
+                    return leftHand;
+                }
+            }
+        }
 
         //private IList<ITest<ITestData>> tests;
 
@@ -49,11 +71,28 @@ namespace HandVR
             }
         }
 
+        public void SetRightHand()
+        {
+            isRightHand = true;
+        }
+
+        public void SetLeftHand()
+        {
+            isRightHand = false;
+        }
+
         [System.Serializable]
         private struct Test
         {
             public GameObject testObject;
             public string testName;
+        }
+
+        [System.Serializable]
+        private struct Modifier
+        {
+            public IHand mod;
+            public string modName;
         }
     }
 }

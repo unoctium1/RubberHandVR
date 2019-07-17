@@ -6,6 +6,9 @@ namespace HandVR
 {
     public interface IHand
     {
+        bool IsStarted { get; }
 
+        IEnumerator Start();
+        IEnumerator Reset();
     }
 }

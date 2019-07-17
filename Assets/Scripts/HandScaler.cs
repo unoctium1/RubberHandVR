@@ -2,17 +2,47 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class HandScaler : MonoBehaviour
+namespace HandVR
 {
-    // Start is called before the first frame update
-    void Start()
+    public class HandScaler : IHand
     {
-        
-    }
+        private GameObject curHand;
 
-    // Update is called once per frame
-    void Update()
-    {
+        public bool IsStarted { get; private set; }
+
+        public IEnumerator Start()
+        {
+            IsStarted = true;
+            curHand = GameManager.instance.ActiveHand;
+            yield return LerpUniformSize(curHand, HandModifierManager.instance.UniformScaleFactor, 2f);
+        }
+
+        public IEnumerator Reset()
+        {
+            if (curHand != null)
+            {
+                yield return LerpUniformSize(curHand, 1, 2f);
+                curHand = null;
+            }
+            IsStarted = false;
+            yield return null;
+        }
+
+        IEnumerator LerpUniformSize(GameObject go, float targetSize, float time)
+        {
+            Vector3 initSize = go.transform.localScale;
+            Vector3 finalSize = Vector3.one * targetSize;
+
+            float initTime = 0;
+            while(initTime  < time)
+            {
+                Vector3 scale = Vector3.Lerp(initSize, finalSize, initTime / time);
+                go.transform.localScale = scale;
+                initTime += Time.deltaTime;
+                yield return null;
+            }
+            yield return null;
+        }
         
     }
 }

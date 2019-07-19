@@ -16,17 +16,18 @@ namespace HandVR
 
         private IHand mod;
 
-
-        public void Init(IHand mod, string text)
+        public void Start()
         {
-            label.text = text;
+            mod = GetComponent<IHand>() as IHand;
+            label.text = mod.Label;
             startButton.onClick.AddListener(this.StartPressed);
             resetButton.onClick.AddListener(this.ResetPressed);
         }
 
+
         public void StartPressed()
         {
-            StartCoroutine(mod.Start());
+            StartCoroutine(mod.StartEffect());
             StartCoroutine(CheckStartAvailable());
             startButton.interactable = false;
         }
@@ -44,8 +45,9 @@ namespace HandVR
 
         public void ResetPressed()
         {
-            StopCoroutine(mod.Start());
+            StopAllCoroutines();
             StartCoroutine(mod.Reset());
+            StartCoroutine(CheckStartAvailable());
         }
 
 

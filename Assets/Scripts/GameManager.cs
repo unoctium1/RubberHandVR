@@ -13,13 +13,18 @@ namespace HandVR
         [SerializeField]
         private Test[] tests;
         [SerializeField]
-        private Modifier[] modifiers;
+        private GameObject[] modifiers;
+        [SerializeField]
+        private GameObject modPanelPrefab;
+        [SerializeField]
+        private GameObject modPanelParent;
+        private IList<ModPanel> modPanels;
 
         [SerializeField]
-        private GameObject panelPrefab;
+        private GameObject testPanelPrefab;
         [SerializeField]
-        private GameObject panelParent;
-        private IList<GamePanel> panels;
+        private GameObject testPanelParent;
+        private IList<GamePanel> testPanels;
 
         [SerializeField]
         private GameObject leftHand;
@@ -28,6 +33,7 @@ namespace HandVR
 
         private bool isRightHand = true;
 
+        [SerializeField]
         public GameObject ActiveHand { get
             {
                 if (isRightHand)
@@ -55,19 +61,30 @@ namespace HandVR
                 Destroy(this);
             }
 
-            panels = new List<GamePanel>();
-
+            testPanels = new List<GamePanel>();
+            modPanels = new List<ModPanel>();
             float offset = 0;
             foreach(Test t in tests)
             {
-                GameObject p = Instantiate(panelPrefab, panelParent.transform);
+                GameObject p = Instantiate(testPanelPrefab, testPanelParent.transform);
                 RectTransform rt = p.GetComponent<RectTransform>();
                 Vector3 pos = rt.position;
                 pos.y += offset;
                 offset += rt.rect.height;
                 GamePanel panel = p.GetComponent<GamePanel>();
                 panel.Init(t.testObject, t.testName);
-                panels.Add(panel);
+                testPanels.Add(panel);
+            }
+            offset = 0;
+            foreach (GameObject m in modifiers)
+            {
+                GameObject p = Instantiate(m, modPanelParent.transform);
+                RectTransform rt = p.GetComponent<RectTransform>();
+                Vector3 pos = rt.position;
+                pos.y += offset;
+                offset += rt.rect.height;
+                ModPanel panel = p.GetComponent<ModPanel>();
+                modPanels.Add(panel);
             }
         }
 
@@ -88,11 +105,5 @@ namespace HandVR
             public string testName;
         }
 
-        [System.Serializable]
-        private struct Modifier
-        {
-            public IHand mod;
-            public string modName;
-        }
     }
 }

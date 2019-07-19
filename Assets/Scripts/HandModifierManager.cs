@@ -12,7 +12,9 @@ namespace HandVR
         public static HandModifierManager instance = null;
 
         [SerializeField]
-        public float UniformScaleFactor { get; private set; }
+        private float _uniformScaleFactor;
+
+        public float UniformScaleFactor { get => _uniformScaleFactor; }
 
         // Start is called before the first frame update
         void Awake()

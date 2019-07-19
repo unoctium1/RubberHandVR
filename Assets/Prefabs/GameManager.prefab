@@ -64,10 +64,13 @@ MonoBehaviour:
       type: 3}
     testName: Button Press - Reaction Time test
   modifiers:
-  - modName: 
-  panelPrefab: {fileID: 2915676326105748722, guid: ea06f9d8cfcf82942a6e943cd6424637,
+  - {fileID: 5730678311512912489, guid: 57d8d4b21d0b10c4b9b0b08032cb768a, type: 3}
+  modPanelPrefab: {fileID: 4518438555526172595, guid: ef4caab421896bf459acfcc05ddf3cca,
     type: 3}
-  panelParent: {fileID: 8814461853973497679}
+  modPanelParent: {fileID: 7605469672622704240}
+  testPanelPrefab: {fileID: 2915676326105748722, guid: ea06f9d8cfcf82942a6e943cd6424637,
+    type: 3}
+  testPanelParent: {fileID: 8814461853973497679}
   leftHand: {fileID: 0}
   rightHand: {fileID: 0}
 --- !u!114 &1717924693
@@ -82,6 +85,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 315c4e7ef045fd541b4803a956415ef4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _uniformScaleFactor: 2
 --- !u!1 &8141043282851251508
 GameObject:
   m_ObjectHideFlags: 0
@@ -294,6 +298,26 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 343422031790945554}
+    - target: {fileID: 5016032045120695143, guid: cbd53a921c93b7b4094a862e32caabc1,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -125
+      objectReference: {fileID: 0}
+    - target: {fileID: 5016032045120695143, guid: cbd53a921c93b7b4094a862e32caabc1,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -129.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 5016032045120695143, guid: cbd53a921c93b7b4094a862e32caabc1,
+        type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 300
+      objectReference: {fileID: 0}
+    - target: {fileID: 5016032045120695143, guid: cbd53a921c93b7b4094a862e32caabc1,
+        type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 200
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: cbd53a921c93b7b4094a862e32caabc1, type: 3}
 --- !u!224 &4444888744076264331 stripped
@@ -305,6 +329,12 @@ RectTransform:
 --- !u!1 &8814461853973497679 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 6035201636643747496, guid: cbd53a921c93b7b4094a862e32caabc1,
+    type: 3}
+  m_PrefabInstance: {fileID: 2995480561911591399}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &7605469672622704240 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4620160969815701399, guid: cbd53a921c93b7b4094a862e32caabc1,
     type: 3}
   m_PrefabInstance: {fileID: 2995480561911591399}
   m_PrefabAsset: {fileID: 0}

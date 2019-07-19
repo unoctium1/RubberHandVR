@@ -4,13 +4,16 @@ using UnityEngine;
 
 namespace HandVR
 {
-    public class HandScaler : IHand
+    [System.Serializable]
+    public class HandScaler : MonoBehaviour, IHand
     {
         private GameObject curHand;
 
         public bool IsStarted { get; private set; }
+        const string _title = "Hand Scaler";
+        public string Label { get => _title; }
 
-        public IEnumerator Start()
+        public IEnumerator StartEffect()
         {
             IsStarted = true;
             curHand = GameManager.instance.ActiveHand;

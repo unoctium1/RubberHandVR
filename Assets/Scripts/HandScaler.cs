@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using static HandVR.HandModifierManager;
 
 namespace HandVR
 {
@@ -17,27 +18,44 @@ namespace HandVR
         {
             IsStarted = true;
             curHand = GameManager.instance.ActiveHand;
-            yield return LerpUniformSize(curHand, HandModifierManager.instance.UniformScaleFactor, 2f);
+            yield return LerpSize(curHand, HandModifierManager.instance.ScaleFactor, 2f, HandModifierManager.instance.AxisToScale);
         }
 
         public IEnumerator Reset()
         {
             if (curHand != null)
             {
-                yield return LerpUniformSize(curHand, 1, 2f);
+                yield return LerpSize(curHand, 1, 2f);
                 curHand = null;
             }
             IsStarted = false;
             yield return null;
         }
 
-        IEnumerator LerpUniformSize(GameObject go, float targetSize, float time)
+        IEnumerator LerpSize(GameObject go, float targetSize, float time, Axis axis = Axis.none)
         {
             Vector3 initSize = go.transform.localScale;
-            Vector3 finalSize = Vector3.one * targetSize;
+            Vector3 finalSize = initSize;
+
+
+            switch (axis)
+            {
+                case Axis.x:
+                    finalSize.x = targetSize;
+                    break;
+                case Axis.y:
+                    finalSize.y = targetSize;
+                    break;
+                case Axis.z:
+                    finalSize.z = targetSize;
+                    break;
+                default:
+                    finalSize = Vector3.one * targetSize;
+                    break;
+            }
 
             float initTime = 0;
-            while(initTime  < time)
+            while (initTime < time)
             {
                 Vector3 scale = Vector3.Lerp(initSize, finalSize, initTime / time);
                 go.transform.localScale = scale;
@@ -46,6 +64,6 @@ namespace HandVR
             }
             yield return null;
         }
-        
+
     }
 }

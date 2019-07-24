@@ -12,9 +12,13 @@ namespace HandVR
         public static HandModifierManager instance = null;
 
         [SerializeField]
-        private float _uniformScaleFactor;
+        private float _scaleFactor;
 
-        public float UniformScaleFactor { get => _uniformScaleFactor; }
+        [SerializeField, Tooltip("Use none for uniform scale")]
+        private Axis _axisToScale = Axis.none;
+
+        public float ScaleFactor { get => _scaleFactor; }
+        public Axis AxisToScale { get => _axisToScale; }
 
         // Start is called before the first frame update
         void Awake()
@@ -27,6 +31,11 @@ namespace HandVR
             {
                 Destroy(this);
             }
+        }
+
+        public enum Axis
+        {
+            x, y, z, none
         }
     }
 }

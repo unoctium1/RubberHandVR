@@ -1,5 +1,19 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!114 &155590515709339292
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 155590515709339291}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ced933989b264e24e9aa69f22c673019, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  child: {fileID: 2995480560757612369}
+  speed: 1
 --- !u!1 &3206003244557091158
 GameObject:
   m_ObjectHideFlags: 0
@@ -85,7 +99,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 315c4e7ef045fd541b4803a956415ef4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _uniformScaleFactor: 2
+  _scaleFactor: 2
+  _axisToScale: 3
 --- !u!1 &8141043282851251508
 GameObject:
   m_ObjectHideFlags: 0
@@ -298,6 +313,10 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 343422031790945554}
+    - target: {fileID: 853392248, guid: cbd53a921c93b7b4094a862e32caabc1, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: SetRightHand
+      objectReference: {fileID: 0}
     - target: {fileID: 5016032045120695143, guid: cbd53a921c93b7b4094a862e32caabc1,
         type: 3}
       propertyPath: m_AnchoredPosition.x
@@ -335,6 +354,18 @@ GameObject:
 --- !u!1 &7605469672622704240 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 4620160969815701399, guid: cbd53a921c93b7b4094a862e32caabc1,
+    type: 3}
+  m_PrefabInstance: {fileID: 2995480561911591399}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &155590515709339291 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3151060741504997244, guid: cbd53a921c93b7b4094a862e32caabc1,
+    type: 3}
+  m_PrefabInstance: {fileID: 2995480561911591399}
+  m_PrefabAsset: {fileID: 0}
+--- !u!224 &2995480560757612369 stripped
+RectTransform:
+  m_CorrespondingSourceObject: {fileID: 1272475318, guid: cbd53a921c93b7b4094a862e32caabc1,
     type: 3}
   m_PrefabInstance: {fileID: 2995480561911591399}
   m_PrefabAsset: {fileID: 0}

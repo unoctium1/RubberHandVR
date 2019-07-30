@@ -68,9 +68,10 @@ namespace HandVR
             {
                 GameObject p = Instantiate(testPanelPrefab, testPanelParent.transform);
                 RectTransform rt = p.GetComponent<RectTransform>();
-                Vector3 pos = rt.position;
+                Vector3 pos = rt.localPosition;
                 pos.y += offset;
-                offset += rt.rect.height;
+                rt.localPosition = pos;
+                offset -= rt.rect.height;
                 GamePanel panel = p.GetComponent<GamePanel>();
                 panel.Init(t.testObject, t.testName);
                 testPanels.Add(panel);
@@ -80,9 +81,10 @@ namespace HandVR
             {
                 GameObject p = Instantiate(m, modPanelParent.transform);
                 RectTransform rt = p.GetComponent<RectTransform>();
-                Vector3 pos = rt.position;
+                Vector3 pos = rt.localPosition;
                 pos.y += offset;
-                offset += rt.rect.height;
+                rt.localPosition = pos;
+                offset -= rt.rect.height;
                 ModPanel panel = p.GetComponent<ModPanel>();
                 modPanels.Add(panel);
             }

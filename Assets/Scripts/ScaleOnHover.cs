@@ -59,7 +59,7 @@ public class ScaleOnHover : MonoBehaviour, IPointerEnterHandler, IPointerExitHan
         float diff = Mathf.Abs(((finalSize - initSize) / denominator).magnitude);
 
         float time = diff / speed;
-        Debug.Log(time);
+        //Debug.Log(time);
         float initTime = 0;
         while (initTime < time)
         {

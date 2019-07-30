@@ -26,7 +26,14 @@ namespace HandVR
         /// Sets number of test repitions to perform
         /// </summary>
         /// <param name="numTests"></param>
+        [System.Obsolete]
         void SetNumTests(int numTests);
+
+        /// <summary>
+        /// Sets total time to perform the trials
+        /// </summary>
+        /// <param name="numMins">Time for the game (in minutes)</param>
+        void SetNumMinutes(float numMins);
 
         /// <summary>
         /// Stops test early

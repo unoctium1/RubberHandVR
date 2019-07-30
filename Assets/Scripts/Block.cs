@@ -17,28 +17,29 @@ namespace HandVR
             private BlockGameManager manager;
 
             private AnchorableBehaviour anchorableBehaviour;
-            private MeshRenderer mesh;
+            private Renderer mesh;
 
             // Start is called before the first frame update
             void Start()
             {
                 manager = GetComponentInParent<BlockGameManager>();
                 anchorableBehaviour = GetComponent<AnchorableBehaviour>();
-                mesh = GetComponent<MeshRenderer>();
-
+                mesh = GetComponent<Renderer>();
+                
                 
             }
 
             internal void Setup()
             {
-                mesh.material = manager.Boxes[colorLabel].BoxMat;
+                mesh.materials[0] = manager.Boxes[colorLabel].BoxMat;
                 anchorableBehaviour.anchorGroup = manager.Boxes[colorLabel].GroupLabel;
+                anchorableBehaviour.OnAttachedToAnchor += OnAttached;
             }
 
-            // Update is called once per frame
-            void Update()
+            private void OnAttached()
             {
-
+                manager.RemoveBlock(this);
+                Destroy(this.gameObject);
             }
         }
     }

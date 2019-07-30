@@ -21,8 +21,11 @@ namespace HandVR
             [SerializeField]
             private TextMesh resultLabel;
 
-            [SerializeField]
+            [System.Obsolete]
             private int tests;
+
+            [SerializeField]
+            private float minutes;
 
             //private const string _label = "Button Pressing Reaction Test";
 
@@ -60,19 +63,45 @@ namespace HandVR
                 StopAllCoroutines();
             }
 
+            [System.Obsolete]
             public void SetNumTests(int numTests)
             {
                 tests = numTests;
             }
 
+            public void SetNumMinutes(float numMins)
+            {
+                minutes = numMins;
+            }
 
-            public IEnumerator StartTest()
+            [System.Obsolete]
+            public IEnumerator StartTest_trials()
             {
                 resultLabel.gameObject.SetActive(false);
                 gameObject.SetActive(false);
                 yield return new InteractableText.TextMessageYield(instructions);
                 this.gameObject.SetActive(true);
                 for (int i = 0; i < tests; i++)
+                {
+                    Buttons b = (Buttons)Random.Range(0, 2);
+                    yield return HandleButton(b);
+                    //Debug.Log(Results[Results.Count-1]);
+                }
+                resultLabel.text = "Finished!";
+                resultLabel.gameObject.SetActive(true);
+                yield return new WaitForSeconds(0.2f);
+
+            }
+
+            public IEnumerator StartTest()
+            {
+                resultLabel.gameObject.SetActive(false);
+                gameObject.SetActive(false);
+                yield return new InteractableText.TextMessageYield(instructions);
+                float stopTime = minutes * 60f;
+                float initTime = Time.time;
+                this.gameObject.SetActive(true);
+                while((Time.time - initTime) < stopTime)
                 {
                     Buttons b = (Buttons)Random.Range(0, 2);
                     yield return HandleButton(b);

@@ -9,7 +9,9 @@ namespace HandVR
     {
         bool IsStarted { get; }
         string Label { get; }
+        float Value { get; set; }
         IEnumerator StartEffect();
         IEnumerator Reset();
+        bool IsFinished { get; }
     }
 }

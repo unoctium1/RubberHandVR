@@ -13,17 +13,18 @@ namespace HandVR
         [SerializeField]
         string _title = "Hand Scaler";
         public string Label { get => _title; }
+        public float Value { get => scaleFactor; set => scaleFactor = value; }
+
+        public bool IsFinished { get; private set; }
 
         [SerializeField]
         private Axis axisToScale;
         [SerializeField]
         private float scaleFactor;
 
-        [SerializeField]
-        private GameObject cameraParent;
-
         public IEnumerator StartEffect()
         {
+            IsFinished = false;
             IsStarted = true;
             curHand = GameManager.instance.ActiveHand;
             if (HandModifierManager.instance.ScaleCamera)
@@ -31,6 +32,7 @@ namespace HandVR
                 yield return LerpSize(HandModifierManager.instance.CameraParent, scaleFactor, 2f, axisToScale);
             }
             else { yield return LerpSize(curHand, scaleFactor, 2f, axisToScale); }
+            IsFinished = true;
             
         }
 

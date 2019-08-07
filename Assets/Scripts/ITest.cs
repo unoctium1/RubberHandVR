@@ -39,6 +39,8 @@ namespace HandVR
         /// Stops test early
         /// </summary>
         void StopTest();
+
+        bool IsRunning { get; }
     }
 
     /// <summary>

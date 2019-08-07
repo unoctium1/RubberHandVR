@@ -15,6 +15,8 @@ namespace HandVR
 
             [SerializeField]
             private BlockGameManager manager;
+            [SerializeField]
+            private BlockGameBox box;
 
             private AnchorableBehaviour anchorableBehaviour;
             private Renderer mesh;
@@ -29,16 +31,27 @@ namespace HandVR
                 
             }
 
-            internal void Setup()
+            internal void Setup(BlockGameBox _box)
             {
-                mesh.materials[0] = manager.Boxes[colorLabel].BoxMat;
-                anchorableBehaviour.anchorGroup = manager.Boxes[colorLabel].GroupLabel;
+                box = _box;
+                if(mesh == null)
+                {
+                    mesh = GetComponent<Renderer>();
+                }
+                if(anchorableBehaviour == null)
+                {
+                    anchorableBehaviour = GetComponent<AnchorableBehaviour>();
+                }
+                colorLabel = box.AnchorLabel;
+                mesh.material = box.BoxMat;
+                anchorableBehaviour.anchorGroup = box.GroupLabel;
                 anchorableBehaviour.OnAttachedToAnchor += OnAttached;
             }
 
             private void OnAttached()
             {
                 manager.RemoveBlock(this);
+                anchorableBehaviour.anchor.anchoredObjects.Clear();
                 Destroy(this.gameObject);
             }
         }

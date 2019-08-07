@@ -37,13 +37,7 @@ namespace HandVR
             bool isFloat = float.TryParse(numMinutes.text, out float numMins);
             if (isFloat)
             {
-                errorText.gameObject.SetActive(false);
-                stopButton.interactable = true;
-                startButton.interactable = false;
-                _testInScene = Instantiate(_testPrefab);
-                _test = _testInScene.GetComponent(typeof(ITest)) as ITest;
-                _test.SetNumMinutes(numMins);
-                StartCoroutine(_test.StartTest());
+                StartTest(numMins);
             }
             else
             {
@@ -51,6 +45,22 @@ namespace HandVR
             }
             
 
+        }
+
+        public void StartTest(float minutes)
+        {
+            errorText.gameObject.SetActive(false);
+            stopButton.interactable = true;
+            startButton.interactable = false;
+            _testInScene = Instantiate(_testPrefab);
+            _test = _testInScene.GetComponent(typeof(ITest)) as ITest;
+            _test.SetNumMinutes(minutes);
+            StartCoroutine(_test.StartTest());
+        }
+
+        public bool IsRunning()
+        {
+            return _test.IsRunning;
         }
 
         public void StopPressed()

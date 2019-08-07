@@ -13,8 +13,12 @@ namespace HandVR
         private Button resetButton;
         [SerializeField]
         private Text label;
+        [SerializeField]
+        private Slider valueSetter;
 
         private IHand mod;
+
+        public bool IsFinished { get => mod.IsFinished; }
 
         public void Start()
         {
@@ -22,8 +26,15 @@ namespace HandVR
             label.text = mod.Label;
             startButton.onClick.AddListener(this.StartPressed);
             resetButton.onClick.AddListener(this.ResetPressed);
+            valueSetter.value = mod.Value;
+            valueSetter.onValueChanged.AddListener(UpdateValue);
         }
 
+
+        private void UpdateValue(float v)
+        {
+            mod.Value = v;
+        }
 
         public void StartPressed()
         {
@@ -32,7 +43,7 @@ namespace HandVR
             startButton.interactable = false;
         }
 
-        private IEnumerator CheckStartAvailable()
+        public IEnumerator CheckStartAvailable()
         {
             while (mod.IsStarted)
             {

@@ -16,6 +16,8 @@ MonoBehaviour:
   xTiltDestination: 5
   yOffsetDestination: 0.15
   zOffsetDestination: 0.15
+  displacement: 3
+  usePostProcess: 1
 --- !u!1001 &4229740997809302616
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -101,7 +103,7 @@ PrefabInstance:
     - target: {fileID: 3546617273662968888, guid: ef4caab421896bf459acfcc05ddf3cca,
         type: 3}
       propertyPath: m_SizeDelta.y
-      value: 50
+      value: 70
       objectReference: {fileID: 0}
     - target: {fileID: 3546617273662968888, guid: ef4caab421896bf459acfcc05ddf3cca,
         type: 3}

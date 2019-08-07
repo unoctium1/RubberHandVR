@@ -56,11 +56,14 @@ namespace HandVR
             #region PUBLIC
             public IList<ITestData> Results { get; private set; }
 
+            public bool IsRunning { get; private set; } = false;
+
             //public string Label => _label;
 
             public void StopTest()
             {
                 StopAllCoroutines();
+                IsRunning = false;
             }
 
             [System.Obsolete]
@@ -95,6 +98,7 @@ namespace HandVR
 
             public IEnumerator StartTest()
             {
+                IsRunning = true;
                 resultLabel.gameObject.SetActive(false);
                 gameObject.SetActive(false);
                 yield return new InteractableText.TextMessageYield(instructions);
@@ -109,7 +113,10 @@ namespace HandVR
                 }
                 resultLabel.text = "Finished!";
                 resultLabel.gameObject.SetActive(true);
-                yield return new WaitForSeconds(0.2f);
+                GameManager.instance.totalResults.Add(new GameManager.TotalData { label = "Button Game", data = Results });
+                yield return new WaitForSeconds(0.5f);
+                resultLabel.gameObject.SetActive(false);
+                IsRunning = false;
 
             }
             #endregion //PUBLIC
@@ -148,19 +155,20 @@ namespace HandVR
 
             private void Left_UpdateButton()
             {
-                Debug.Log("Left pressed");
+                //Debug.Log("Left pressed");
                 LastPressedButton = Buttons.LEFT;
             }
 
             private void Right_UpdateButton()
             {
-                Debug.Log("Right pressed");
+                //Debug.Log("Right pressed");
                 LastPressedButton = Buttons.RIGHT;
             }
             #endregion //PRIVATE_METHODS
 
         }
 
+        [System.Serializable]
         public struct ButtonData : ITestData
         {
             public float time;

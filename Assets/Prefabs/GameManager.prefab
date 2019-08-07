@@ -82,7 +82,6 @@ MonoBehaviour:
     testName: Block Game - Sorting/Grasping Test
   modifiers:
   - {fileID: 5730678311512912489, guid: 57d8d4b21d0b10c4b9b0b08032cb768a, type: 3}
-  - {fileID: 3808817569777051775, guid: 6336cc8da8e95324897cbf6c2e4b0670, type: 3}
   - {fileID: 290404017019118571, guid: 00adacb918452d34ca00d53fb11f4342, type: 3}
   modPanelPrefab: {fileID: 4518438555526172595, guid: ef4caab421896bf459acfcc05ddf3cca,
     type: 3}
@@ -107,6 +106,7 @@ MonoBehaviour:
   _cameraParent: {fileID: 0}
   _scaleCamera: 0
   cameraProvider: {fileID: 0}
+  displacementProvider: {fileID: 0}
   _scaleFactor: 2
   _axisToScale: 3
 --- !u!1 &8141043282851251508

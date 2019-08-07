@@ -9,11 +9,17 @@ namespace HandVR
         public class BlockGameManager : MonoBehaviour, ITest
         {
             public IList<ITestData> Results { get; private set; }
+
+            public bool IsRunning { get; private set; } = false;
+
             const string instructions = "When the test begins, several blocks will appear in front of you. As fast as you can, sort the blocks into the bins of their corresponding color.";
 
-            internal IDictionary<AnchorColors, BlockGameBox> Boxes { get; private set; }
             [SerializeField]
-            private BlockGameBox[] boxes;
+            private BlockGameBox magentaBox;
+            [SerializeField]
+            private BlockGameBox greenBox;
+            [SerializeField]
+            private BlockGameBox orangeBox;
             [SerializeField]
             private GameObject[] blockPrefabs;
 
@@ -43,7 +49,7 @@ namespace HandVR
             public IEnumerator StartTest()
             {
                 resultLabel.gameObject.SetActive(false);
-                
+                IsRunning = true;
                 gameObject.SetActive(false);
                 yield return new InteractableText.TextMessageYield(instructions);
                 this.gameObject.SetActive(true);
@@ -60,13 +66,17 @@ namespace HandVR
                 }
                 resultLabel.text = "Finished!";
                 resultLabel.gameObject.SetActive(true);
-                yield return new WaitForSeconds(0.2f);
+                GameManager.instance.totalResults.Add(new GameManager.TotalData { label = "Block Game", data = Results });
+                yield return new WaitForSeconds(0.5f);
+                resultLabel.gameObject.SetActive(false);
+                IsRunning = false;
 
             }
 
             public void StopTest()
             {
                 StopAllCoroutines();
+                IsRunning = false;
             }
 
             public IEnumerator Trial()
@@ -74,14 +84,25 @@ namespace HandVR
                 resultLabel.gameObject.SetActive(false);
                 for (int i = 0; i < blocksToSpawn; i++)
                 {
-                    GameObject b = Instantiate(blockPrefabs[Random.Range(0, blockPrefabs.Length)], (Random.insideUnitSphere * 0.2f), Quaternion.identity, transform);
+                    Vector3 position = Random.insideUnitSphere * 0.2f;
+                    position.z += 0.5f;
+                    GameObject b = Instantiate(blockPrefabs[Random.Range(0, blockPrefabs.Length)], transform, true);
+                    b.transform.position = position;
                     Block block = b.GetComponent<Block>();
-                    block.colorLabel = (AnchorColors)Random.Range(0, 3);
                     activeBlocks.Add(block);
-                }
-                foreach(Block b in activeBlocks)
-                {
-                    b.Setup();
+                    AnchorColors colorLabel = (AnchorColors)Random.Range(0, 3);
+                    switch (colorLabel)
+                    {
+                        case AnchorColors.green:
+                            block.Setup(greenBox);
+                            break;
+                        case AnchorColors.magenta:
+                            block.Setup(magentaBox);
+                            break;
+                        case AnchorColors.orange:
+                            block.Setup(orangeBox);
+                            break;
+                    }
                 }
                 float _time = Time.time;
                 while (activeBlocks.Count != 0)
@@ -111,13 +132,8 @@ namespace HandVR
             {
                 Results = new List<ITestData>();
                 resultLabel.gameObject.SetActive(false);
-                Boxes = new Dictionary<AnchorColors, BlockGameBox>();
                 activeBlocks = new List<Block>();
-                foreach (BlockGameBox b in boxes)
-                {
-                    Boxes[b.AnchorLabel] = b;
-                    //Debug.Log(Boxes[b.AnchorLabel].BoxMat.color);
-                }
+                //Debug.Log("Boxes finished building" + this.name);
                 isSetup = true;
 
             }
@@ -126,6 +142,7 @@ namespace HandVR
 
         }
 
+        [System.Serializable]
         public struct BlockData : ITestData
         {
             public float time;

@@ -138,13 +138,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d8adfde1ff850224497086f5c4c02731, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  boxes:
-  - {fileID: 7473524791032997958}
-  - {fileID: 7779453930079719689}
-  - {fileID: 8433833307011283973}
+  magentaBox: {fileID: 7473524791032997958}
+  greenBox: {fileID: 8433833307011283973}
+  orangeBox: {fileID: 7779453930079719689}
   blockPrefabs:
   - {fileID: 5272330237231506966, guid: ee5a9d386408d0442ac80aa305d2b418, type: 3}
   - {fileID: 1632784874166962900, guid: 28c1bb35b960fc0478b33a0417a19d3d, type: 3}
+  - {fileID: 7205261982060608527, guid: 99cf71d2da500cd42ae92c41563a5f88, type: 3}
   resultLabel: {fileID: 45235664886700293}
   blocksToSpawn: 3
 --- !u!1001 &2737803752516872057
@@ -224,11 +224,6 @@ PrefabInstance:
       propertyPath: _boxMat
       value: 
       objectReference: {fileID: 2100000, guid: 8c923f4cb0a11ff42a81fd447ff3bcd9, type: 2}
-    - target: {fileID: 7458938892110566303, guid: 8026ad1823be4dd40bd8db4b7164d7b8,
-        type: 3}
-      propertyPath: m_Name
-      value: OrangeAnchorGroup
-      objectReference: {fileID: 0}
     - target: {fileID: 4476076660255798429, guid: 8026ad1823be4dd40bd8db4b7164d7b8,
         type: 3}
       propertyPath: m_Materials.Array.data[0]
@@ -259,6 +254,11 @@ PrefabInstance:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: 8c923f4cb0a11ff42a81fd447ff3bcd9, type: 2}
+    - target: {fileID: 7458938892110566303, guid: 8026ad1823be4dd40bd8db4b7164d7b8,
+        type: 3}
+      propertyPath: m_Name
+      value: OrangeAnchorGroup
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8026ad1823be4dd40bd8db4b7164d7b8, type: 3}
 --- !u!4 &7154500393795251499 stripped
@@ -351,11 +351,6 @@ PrefabInstance:
       propertyPath: _boxMat
       value: 
       objectReference: {fileID: 2100000, guid: 4219da9ab3e4e754892359fe5343b99d, type: 2}
-    - target: {fileID: 7458938892110566303, guid: 8026ad1823be4dd40bd8db4b7164d7b8,
-        type: 3}
-      propertyPath: m_Name
-      value: MagentaAnchorGroup
-      objectReference: {fileID: 0}
     - target: {fileID: 4476076660255798429, guid: 8026ad1823be4dd40bd8db4b7164d7b8,
         type: 3}
       propertyPath: m_Materials.Array.data[0]
@@ -386,6 +381,11 @@ PrefabInstance:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: 4219da9ab3e4e754892359fe5343b99d, type: 2}
+    - target: {fileID: 7458938892110566303, guid: 8026ad1823be4dd40bd8db4b7164d7b8,
+        type: 3}
+      propertyPath: m_Name
+      value: MagentaAnchorGroup
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8026ad1823be4dd40bd8db4b7164d7b8, type: 3}
 --- !u!4 &8000788916065866852 stripped
@@ -483,10 +483,26 @@ PrefabInstance:
       propertyPath: _boxMat
       value: 
       objectReference: {fileID: 2100000, guid: ac628aeab08c28e46a988f252f094e8e, type: 2}
-    - target: {fileID: 7458938892110566303, guid: 8026ad1823be4dd40bd8db4b7164d7b8,
+    - target: {fileID: 8251047407705059885, guid: 8026ad1823be4dd40bd8db4b7164d7b8,
         type: 3}
-      propertyPath: m_Name
-      value: GreenAnchorGroup
+      propertyPath: _eventTable._entries.Array.size
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8251047407705059885, guid: 8026ad1823be4dd40bd8db4b7164d7b8,
+        type: 3}
+      propertyPath: allowMultipleObjects
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8251047407705059885, guid: 8026ad1823be4dd40bd8db4b7164d7b8,
+        type: 3}
+      propertyPath: _eventTable._entries.Array.data[0].enumValue
+      value: 130
+      objectReference: {fileID: 0}
+    - target: {fileID: 8251047407705059885, guid: 8026ad1823be4dd40bd8db4b7164d7b8,
+        type: 3}
+      propertyPath: _eventTable._entries.Array.data[0].callback.m_TypeName
+      value: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+        Culture=neutral, PublicKeyToken=null
       objectReference: {fileID: 0}
     - target: {fileID: 4476076660255798429, guid: 8026ad1823be4dd40bd8db4b7164d7b8,
         type: 3}
@@ -518,6 +534,11 @@ PrefabInstance:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: ac628aeab08c28e46a988f252f094e8e, type: 2}
+    - target: {fileID: 7458938892110566303, guid: 8026ad1823be4dd40bd8db4b7164d7b8,
+        type: 3}
+      propertyPath: m_Name
+      value: GreenAnchorGroup
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8026ad1823be4dd40bd8db4b7164d7b8, type: 3}
 --- !u!4 &9058206317254410279 stripped

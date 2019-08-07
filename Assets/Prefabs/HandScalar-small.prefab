@@ -15,6 +15,7 @@ MonoBehaviour:
   _title: Hand Scaler - Small
   axisToScale: 3
   scaleFactor: 0.1
+  cameraParent: {fileID: 0}
 --- !u!1001 &751842251726055372
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -100,7 +101,7 @@ PrefabInstance:
     - target: {fileID: 3546617273662968888, guid: ef4caab421896bf459acfcc05ddf3cca,
         type: 3}
       propertyPath: m_SizeDelta.y
-      value: 50
+      value: 70
       objectReference: {fileID: 0}
     - target: {fileID: 3546617273662968888, guid: ef4caab421896bf459acfcc05ddf3cca,
         type: 3}

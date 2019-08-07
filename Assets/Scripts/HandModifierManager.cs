@@ -18,6 +18,39 @@ namespace HandVR
 
         [SerializeField]
         private Leap.Unity.LeapXRServiceProvider cameraProvider;
+        [SerializeField]
+        private DisplacementPostProcessProvider displacementProvider;
+
+        private float targetDisplacement = 1.0f;
+
+        public bool IsDisplacementReset
+        {
+            get {
+                if (Mathf.Abs(displacementProvider.currentDisplacement - 1.0f) < 0.05f)
+                {
+                    return true;
+                }
+                else
+                {
+                    return false;
+                }
+            }
+        }
+
+        public bool IsDisplacementFinished
+        {
+            get
+            {
+                if (Mathf.Abs(displacementProvider.currentDisplacement - targetDisplacement) < 0.05f)
+                {
+                    return true;
+                }
+                else
+                {
+                    return false;
+                }
+            }
+        }
 
         [SerializeField]
         private float _scaleFactor;
@@ -46,6 +79,19 @@ namespace HandVR
             cameraProvider.deviceOffsetMode = Leap.Unity.LeapXRServiceProvider.DeviceOffsetMode.ManualHeadOffset;
             InitCameraOffset = new Vector3(cameraProvider.deviceTiltXAxis, cameraProvider.deviceOffsetYAxis, cameraProvider.deviceOffsetZAxis);
             cameraProvider.deviceOffsetMode = Leap.Unity.LeapXRServiceProvider.DeviceOffsetMode.Default;
+        }
+
+
+        public void ActivateDisplacementHands(float displacement)
+        {
+            targetDisplacement = displacement;
+            displacementProvider.displacement = displacement;
+            displacementProvider.active = true;
+        }
+
+        public void DeactivateDisplacementHands()
+        {
+            displacementProvider.active = false;
         }
 
 

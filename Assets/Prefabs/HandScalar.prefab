@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fea7c384fbd31a84699e7ecffa4809de, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _title: Hand Scaler - Large
+  _title: Hand Scaler
   axisToScale: 3
   scaleFactor: 2
 --- !u!1001 &8157077080124833242
@@ -25,7 +25,7 @@ PrefabInstance:
     - target: {fileID: 4518438555526172595, guid: ef4caab421896bf459acfcc05ddf3cca,
         type: 3}
       propertyPath: m_Name
-      value: HandScalar-large
+      value: HandScalar
       objectReference: {fileID: 0}
     - target: {fileID: 3546617273662968888, guid: ef4caab421896bf459acfcc05ddf3cca,
         type: 3}
@@ -100,7 +100,7 @@ PrefabInstance:
     - target: {fileID: 3546617273662968888, guid: ef4caab421896bf459acfcc05ddf3cca,
         type: 3}
       propertyPath: m_SizeDelta.y
-      value: 50
+      value: 70
       objectReference: {fileID: 0}
     - target: {fileID: 3546617273662968888, guid: ef4caab421896bf459acfcc05ddf3cca,
         type: 3}
@@ -131,6 +131,36 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Pivot.y
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4718634230279356779, guid: ef4caab421896bf459acfcc05ddf3cca,
+        type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4718634230279356779, guid: ef4caab421896bf459acfcc05ddf3cca,
+        type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3134290204399341276, guid: ef4caab421896bf459acfcc05ddf3cca,
+        type: 3}
+      propertyPath: m_AnchorMin.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3134290204399341276, guid: ef4caab421896bf459acfcc05ddf3cca,
+        type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3134290204399341276, guid: ef4caab421896bf459acfcc05ddf3cca,
+        type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2564635391105897206, guid: ef4caab421896bf459acfcc05ddf3cca,
+        type: 3}
+      propertyPath: m_Value
+      value: 2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ef4caab421896bf459acfcc05ddf3cca, type: 3}

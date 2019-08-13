@@ -13,8 +13,11 @@ namespace HandVR
         private Button resetButton;
         [SerializeField]
         private Text label;
+
+        /*
         [SerializeField]
         private Slider valueSetter;
+        */
 
         private IHand mod;
 
@@ -26,8 +29,8 @@ namespace HandVR
             label.text = mod.Label;
             startButton.onClick.AddListener(this.StartPressed);
             resetButton.onClick.AddListener(this.ResetPressed);
-            valueSetter.value = mod.Value;
-            valueSetter.onValueChanged.AddListener(UpdateValue);
+            //valueSetter.value = mod.Value;
+            //valueSetter.onValueChanged.AddListener(UpdateValue);
         }
 
 

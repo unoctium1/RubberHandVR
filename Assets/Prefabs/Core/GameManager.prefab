@@ -195,11 +195,11 @@ RectTransform:
   m_Father: {fileID: 2995480562080236124}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0.5}
-  m_AnchorMax: {x: 0, y: 0.5}
-  m_AnchoredPosition: {x: 275.9999, y: -107}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 95, y: 49}
   m_SizeDelta: {x: 160, y: 30}
-  m_Pivot: {x: 0, y: 0.5}
+  m_Pivot: {x: 0, y: 0}
 --- !u!222 &1052450585
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -324,7 +324,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 63}
   m_SizeDelta: {x: 527.9, y: 150.6}
   m_Pivot: {x: 0, y: 0}
 --- !u!222 &1422341794
@@ -482,11 +482,11 @@ RectTransform:
   m_Father: {fileID: 2995480562080236124}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0.5}
-  m_AnchorMax: {x: 0, y: 0.5}
-  m_AnchoredPosition: {x: 78, y: -107}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 274, y: 49}
   m_SizeDelta: {x: 160, y: 30}
-  m_Pivot: {x: 0, y: 0.5}
+  m_Pivot: {x: 0, y: 0}
 --- !u!222 &2029431449
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -659,6 +659,7 @@ MonoBehaviour:
     testName: Block Game - Sorting/Grasping Test
   modifiers:
   - {fileID: 5730678311512912489, guid: 57d8d4b21d0b10c4b9b0b08032cb768a, type: 3}
+  - {fileID: 3808817569777051775, guid: 6336cc8da8e95324897cbf6c2e4b0670, type: 3}
   - {fileID: 290404017019118571, guid: 00adacb918452d34ca00d53fb11f4342, type: 3}
   modPanelPrefab: {fileID: 4518438555526172595, guid: ef4caab421896bf459acfcc05ddf3cca,
     type: 3}

@@ -14,18 +14,19 @@ namespace HandVR
         string _title = "Hand Slider";
         public string Label { get => _title; }
         public float Value { get => displacement; set => displacement = value; }
-
+        [SerializeField]
+        private bool usePostProcess = true;
+        [Header("Post process values")]
+        [SerializeField]
+        private float displacement;
+        
+        [Header("Non post process values")]
         [SerializeField]
         private float xTiltDestination = 5;
         [SerializeField]
         private float yOffsetDestination;
         [SerializeField]
         private float zOffsetDestination;
-        [SerializeField]
-        private float displacement;
-        [SerializeField]
-        private bool usePostProcess = true;
-
 
         public IEnumerator StartEffect()
         {

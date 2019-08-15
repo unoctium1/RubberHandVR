@@ -6,11 +6,24 @@ namespace HandVR
 {
     namespace BlockGame
     {
+
+        /// <summary>
+        /// Example setup for a test object - Creates a variety of colored blocks which the user must then sort into various matching receptacles
+        /// </summary>
         public class BlockGameManager : MonoBehaviour, ITest
         {
+
+            #region PROPERTIES
+            /// <summary>
+            /// Returns array of all output results
+            /// </summary>
             public IList<ITestData> Results { get; private set; }
 
+            /// <summary>
+            /// True if test is in progress
+            /// </summary>
             public bool IsRunning { get; private set; } = false;
+            #endregion //PROPERTIES
 
             const string instructions = "When the test begins, several blocks will appear in front of you. As fast as you can, sort the blocks into the bins of their corresponding color.";
 
@@ -22,36 +35,47 @@ namespace HandVR
             private BlockGameBox orangeBox;
             [SerializeField]
             private GameObject[] blockPrefabs;
-
             [SerializeField]
             private TextMesh resultLabel;
-
-            private IList<Block> activeBlocks;
-
             [SerializeField]
             private int blocksToSpawn;
 
+            #region PRIVATE_FIELDS
+            private IList<Block> activeBlocks;
             private int trials;
             private float minutes;
             private bool isSetup = false;
+            #endregion //PRIVATE_FIELDS
 
-            [System.Obsolete]
-            public void SetNumTests(int numTests)
+            #region PUBLIC_METHODS
+            /// <summary>
+            /// Sets how many trials the user must perform - Use set minutes instead
+            /// </summary>
+            /// <param name="numTests"></param>
+            [System.Obsolete] public void SetNumTests(int numTests)
             {
                 trials = numTests;
             }
 
+            /// <summary>
+            /// Sets how long the test lasts for. Once numMins have elapsed, no more trials will be started
+            /// </summary>
+            /// <param name="numMins"></param>
             public void SetNumMinutes(float numMins)
             {
                 minutes = numMins;
             }
 
+            /// <summary>
+            /// Begins a test. Trials will continue to be created until numMins has elapsed
+            /// </summary>
+            /// <returns></returns>
             public IEnumerator StartTest()
             {
                 resultLabel.gameObject.SetActive(false);
                 IsRunning = true;
                 gameObject.SetActive(false);
-                yield return new InteractableText.TextMessageYield(instructions);
+                yield return new Core.InteractableText.TextMessageYield(instructions);
                 this.gameObject.SetActive(true);
                 while (!isSetup)
                 {
@@ -66,19 +90,26 @@ namespace HandVR
                 }
                 resultLabel.text = "Finished!";
                 resultLabel.gameObject.SetActive(true);
-                GameManager.instance.totalResults.Add(new GameManager.TotalData { label = "Block Game", data = Results });
+                Core.GameManager.instance.totalResults.Add(new Core.GameManager.TotalData { label = "Block Game", data = Results });
                 yield return new WaitForSeconds(0.5f);
                 resultLabel.gameObject.SetActive(false);
                 IsRunning = false;
 
             }
 
+            /// <summary>
+            /// Ends test early
+            /// </summary>
             public void StopTest()
             {
                 StopAllCoroutines();
                 IsRunning = false;
             }
 
+            /// <summary>
+            /// Single instance of a trial - spawns in a set number of blocks, which users must then sort into matching receptacles. Trial ends when no active blocks are left in the scene
+            /// </summary>
+            /// <returns></returns>
             public IEnumerator Trial()
             {
                 resultLabel.gameObject.SetActive(false);
@@ -118,7 +149,13 @@ namespace HandVR
                 resultLabel.gameObject.SetActive(true);
                 yield return new WaitForSeconds(0.2f);
             }
+            #endregion //PUBLIC_METHODS
 
+            #region PRIVATE/INTERNAL_METHODS
+            /// <summary>
+            /// Removes a block from the list of currently active blocks
+            /// </summary>
+            /// <param name="b">Block to remove</param>
             internal void RemoveBlock(Block b)
             {
                 if (activeBlocks.Contains(b))
@@ -126,7 +163,9 @@ namespace HandVR
                     activeBlocks.Remove(b);
                 }
             }
+            #endregion //PRIVATE/INTERNAL_METHODS
 
+            #region UNITY_MONOBEHAVIOUR_METHODS
             // Start is called before the first frame update
             void Start()
             {
@@ -137,11 +176,14 @@ namespace HandVR
                 isSetup = true;
 
             }
-
-            
+            #endregion //UNITY_MONOBEHAVIOUR_METHODS
 
         }
 
+
+        /// <summary>
+        /// Struct for output data - stores time taken to complete each trial
+        /// </summary>
         [System.Serializable]
         public struct BlockData : ITestData
         {
@@ -153,6 +195,9 @@ namespace HandVR
             }
         }
 
+        /// <summary>
+        /// Colors of blocks & boxes
+        /// </summary>
         internal enum AnchorColors
         {
             magenta, orange, green

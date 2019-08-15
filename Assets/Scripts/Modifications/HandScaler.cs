@@ -5,53 +5,52 @@ using static HandVR.HandModifierManager;
 
 namespace HandVR
 {
-    public class HandScaler : MonoBehaviour, IHand
+    namespace ModificationExamples
     {
-        private GameObject curHand;
 
-        public bool IsStarted { get; private set; }
-        [SerializeField]
-        string _title = "Hand Scaler";
-        public string Label { get => _title; }
-        public float Value { get => scaleFactor; set => scaleFactor = value; }
-
-        public bool IsFinished { get; private set; }
-
-        [SerializeField]
-        private Axis axisToScale;
-        [SerializeField]
-        private float scaleFactor;
-
-        public IEnumerator StartEffect()
+        /// <summary>
+        /// Example of a hand modification - scales the given hand to the value in scaleFactor. All actual scaling functionality is in HandModifierManager
+        /// </summary>
+        public class HandScaler : MonoBehaviour, IHand
         {
-            IsFinished = false;
-            IsStarted = true;
-            curHand = GameManager.instance.ActiveHand;
-            if (HandModifierManager.instance.ScaleCamera)
+            private GameObject curHand;
+
+            public bool IsStarted { get; private set; }
+            [SerializeField]
+            string _title = "Hand Scaler";
+            public string Label { get => _title; }
+            public float Value { get => scaleFactor; set => scaleFactor = value; }
+
+            public bool IsFinished { get; private set; }
+
+            [SerializeField]
+            private Axis axisToScale;
+            [SerializeField]
+            private float scaleFactor;
+
+            public IEnumerator StartEffect()
             {
-                yield return LerpSize(HandModifierManager.instance.CameraParent, scaleFactor, 2f, axisToScale);
+                IsFinished = false;
+                IsStarted = true;
+                curHand = Core.GameManager.instance.ActiveHand;
+                yield return LerpSize(curHand, scaleFactor, 2f, axisToScale);
+                IsFinished = true;
+
             }
-            else { yield return LerpSize(curHand, scaleFactor, 2f, axisToScale); }
-            IsFinished = true;
-            
-        }
 
-        public IEnumerator Reset()
-        {
-            if (curHand != null)
+            public IEnumerator Reset()
             {
-                if (HandModifierManager.instance.ScaleCamera)
+                if (curHand != null)
                 {
-                    yield return LerpSize(HandModifierManager.instance.CameraParent, 1, 2f);
+                    yield return LerpSize(curHand, 1, 2f); 
+                    curHand = null;
                 }
-                else { yield return LerpSize(curHand, 1, 2f); }
-                curHand = null;
+                IsStarted = false;
+                yield return null;
             }
-            IsStarted = false;
-            yield return null;
+
+
+
         }
-
-        
-
     }
 }

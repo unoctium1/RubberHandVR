@@ -4,41 +4,47 @@ using System.Collections.Generic;
 using UnityEngine;
 namespace HandVR
 {
-	internal class ButtonPressedYield : CustomYieldInstruction
-	{
-		private bool _isPressed = false;
-        private InteractionButton button;
-
-		public ButtonPressedYield()
-		{
-			EventManager.StartListening("ButtonPressed", HandleButtonClick);
-		}
-
-		public ButtonPressedYield(InteractionButton b)
-		{
-            button = b;
-            button.OnPress += HandleButtonClick;
-		}
-
-        ~ButtonPressedYield()
+    namespace ButtonGame
+    {
+        /// <summary>
+        /// Custom yield instruction - yield instruction stops waiting on a button press
+        /// </summary>
+        internal class ButtonPressedYield : CustomYieldInstruction
         {
-            if (button == null)
+            private bool _isPressed = false;
+            private InteractionButton button;
+
+            public ButtonPressedYield()
             {
-                EventManager.StopListening("ButtonPressed", HandleButtonClick);
+                Core.EventManager.StartListening("ButtonPressed", HandleButtonClick);
             }
-            else
+
+            public ButtonPressedYield(InteractionButton b)
             {
-                button.OnPress -= HandleButtonClick;
+                button = b;
+                button.OnPress += HandleButtonClick;
             }
+
+            ~ButtonPressedYield()
+            {
+                if (button == null)
+                {
+                    Core.EventManager.StopListening("ButtonPressed", HandleButtonClick);
+                }
+                else
+                {
+                    button.OnPress -= HandleButtonClick;
+                }
+            }
+
+            public void HandleButtonClick()
+            {
+                _isPressed = true;
+            }
+
+            public override bool keepWaiting => !_isPressed;
+
         }
-
-		public void HandleButtonClick()
-		{
-			_isPressed = true;
-		}
-
-		public override bool keepWaiting => !_isPressed;
-
-	}
+    }
 }
 

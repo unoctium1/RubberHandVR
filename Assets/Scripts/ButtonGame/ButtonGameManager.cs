@@ -9,80 +9,99 @@ namespace HandVR
 {
     namespace ButtonGame
     {
-
+        /// <summary>
+        /// Sample test - users must hit the colored button matching the central pattern
+        /// </summary>
         public class ButtonGameManager : MonoBehaviour, ITest
         {
             const string instructions = "When the test begins, the central panel will turn either green or red. As fast as you can, try to push down the corresponding green or red button. Text on the screen will indicate if you are correct. The test is over when the text displays 'Finished!'";
+
             [SerializeField]
             private Image panel;
             [SerializeField]
             private Color GreenColor, RedColor;
-
             [SerializeField]
             private TextMesh resultLabel;
-
             [System.Obsolete]
             private int tests;
-
             [SerializeField]
             private float minutes;
 
-            //private const string _label = "Button Pressing Reaction Test";
-
+            #region PROPERTIES
+            /// <summary>
+            /// Returns the last pressed button
+            /// </summary>
             internal Buttons LastPressedButton { get; private set; }
+
+            /// <summary>
+            /// Returns the list of results for the trials - see ButtonData for result structure
+            /// </summary>
+            public IList<ITestData> Results { get; private set; }
+
+            /// <summary>
+            /// True if the test is currently in progress
+            /// </summary>
+            public bool IsRunning { get; private set; } = false;
+            #endregion //PROPERTIES
 
             #region UNITY_MONOBEHAVIOUR_METHODS
             private void Start()
             {
 
                 Results = new List<ITestData>();
-                
-                //StartCoroutine(StartHandGame(tests));
             }
 
             private void OnEnable()
             {
-                EventManager.StartListening("LeftButton", Left_UpdateButton);
-                EventManager.StartListening("RightButton", Right_UpdateButton);
+                Core.EventManager.StartListening("LeftButton", Left_UpdateButton);
+                Core.EventManager.StartListening("RightButton", Right_UpdateButton);
             }
 
             private void OnDisable()
             {
-                EventManager.StopListening("LeftButton", Left_UpdateButton);
-                EventManager.StopListening("RightButton", Right_UpdateButton);
+                Core.EventManager.StopListening("LeftButton", Left_UpdateButton);
+                Core.EventManager.StopListening("RightButton", Right_UpdateButton);
             }
             #endregion //UNITY_MONOBEHAVIOUR_METHODS
 
             #region PUBLIC
-            public IList<ITestData> Results { get; private set; }
 
-            public bool IsRunning { get; private set; } = false;
-
-            //public string Label => _label;
-
+            /// <summary>
+            /// Stops the test early
+            /// </summary>
             public void StopTest()
             {
                 StopAllCoroutines();
                 IsRunning = false;
             }
 
-            [System.Obsolete]
-            public void SetNumTests(int numTests)
+            /// <summary>
+            /// Sets the number of trials to perform - use setNumMins instead
+            /// </summary>
+            /// <param name="numTests"></param>
+            [System.Obsolete] public void SetNumTests(int numTests)
             {
                 tests = numTests;
             }
 
+            /// <summary>
+            /// Sets how long the test should run for
+            /// </summary>
+            /// <param name="numMins"></param>
             public void SetNumMinutes(float numMins)
             {
                 minutes = numMins;
             }
 
-            [System.Obsolete]
-            public IEnumerator StartTest_trials()
+            /// <summary>
+            /// Runs through the task for the given number of trials - use StartTest instead
+            /// </summary>
+            /// <returns></returns>
+            [System.Obsolete] public IEnumerator StartTest_trials()
             {
                 resultLabel.gameObject.SetActive(false);
                 gameObject.SetActive(false);
-                yield return new InteractableText.TextMessageYield(instructions);
+                yield return new Core.InteractableText.TextMessageYield(instructions);
                 this.gameObject.SetActive(true);
                 for (int i = 0; i < tests; i++)
                 {
@@ -96,12 +115,16 @@ namespace HandVR
 
             }
 
+            /// <summary>
+            /// Starts the test - runs for a fixed number of minutes
+            /// </summary>
+            /// <returns></returns>
             public IEnumerator StartTest()
             {
                 IsRunning = true;
                 resultLabel.gameObject.SetActive(false);
                 gameObject.SetActive(false);
-                yield return new InteractableText.TextMessageYield(instructions);
+                yield return new Core.InteractableText.TextMessageYield(instructions);
                 float stopTime = minutes * 60f;
                 float initTime = Time.time;
                 this.gameObject.SetActive(true);
@@ -113,7 +136,7 @@ namespace HandVR
                 }
                 resultLabel.text = "Finished!";
                 resultLabel.gameObject.SetActive(true);
-                GameManager.instance.totalResults.Add(new GameManager.TotalData { label = "Button Game", data = Results });
+                Core.GameManager.instance.totalResults.Add(new Core.GameManager.TotalData { label = "Button Game", data = Results });
                 yield return new WaitForSeconds(0.5f);
                 resultLabel.gameObject.SetActive(false);
                 IsRunning = false;
@@ -122,6 +145,11 @@ namespace HandVR
             #endregion //PUBLIC
 
             #region PRIVATE_METHODS
+            /// <summary>
+            /// Helper coroutine - waits for a button to be pressed, and then logs in Results if the pressed button was the expected/correct button
+            /// </summary>
+            /// <param name="expectedButton"></param>
+            /// <returns></returns>
             private IEnumerator HandleButton(Buttons expectedButton)
             {
                 resultLabel.gameObject.SetActive(false);
@@ -168,6 +196,9 @@ namespace HandVR
 
         }
 
+        /// <summary>
+        /// Struct for storing button data - logs how long it took for a trial to complete and whether it was the correct button
+        /// </summary>
         [System.Serializable]
         public struct ButtonData : ITestData
         {

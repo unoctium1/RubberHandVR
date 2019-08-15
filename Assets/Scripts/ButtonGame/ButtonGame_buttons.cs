@@ -5,8 +5,12 @@ using System.Collections.Generic;
 using UnityEngine;
 
 namespace HandVR {
+
     namespace ButtonGame
     {
+        /// <summary>
+        /// Behaviour of buttons for the button game
+        /// </summary>
         internal class ButtonGame_buttons : MonoBehaviour
         {
             private InteractionButton button;
@@ -15,12 +19,8 @@ namespace HandVR {
             private Material color;
             [SerializeField]
             private MeshRenderer buttonObj;
-
             [SerializeField]
             private Buttons buttontype;
-
-            
-
 
             /// <summary>
             /// Gets the value of this button
@@ -45,9 +45,9 @@ namespace HandVR {
                     eventToTrigger = "LeftButton";
                 else
                     eventToTrigger = "RightButton";
-                
-                EventManager.TriggerEvent(eventToTrigger);
-                EventManager.TriggerEvent("ButtonPressed");
+
+                Core.EventManager.TriggerEvent(eventToTrigger);
+                Core.EventManager.TriggerEvent("ButtonPressed");
             }
 
         }

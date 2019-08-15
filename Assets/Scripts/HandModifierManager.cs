@@ -12,14 +12,9 @@ namespace HandVR
         public static HandModifierManager instance = null;
 
         [SerializeField]
-        private GameObject _cameraParent;
-        [SerializeField]
-        private bool _scaleCamera = false;
-
-        [SerializeField]
         private Leap.Unity.LeapXRServiceProvider cameraProvider;
         [SerializeField]
-        private DisplacementPostProcessProvider displacementProvider;
+        private ModificationExamples.DisplacementPostProcessProvider displacementProvider;
 
         private float targetDisplacement = 1.0f;
 
@@ -59,8 +54,6 @@ namespace HandVR
 
         public float ScaleFactor { get => _scaleFactor; }
         public Axis AxisToScale { get => _axisToScale; }
-        public GameObject CameraParent { get => _cameraParent; }
-        public bool ScaleCamera { get => _scaleCamera; }
 
         public Vector3 InitCameraOffset { get; private set; }
 

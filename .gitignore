@@ -9,6 +9,8 @@
 /[Bb]uilds/
 /[Ll]ogs/
 /[Mm]emoryCaptures/
+/[Aa]ssets/[Ss]treaming[Aa]ssets/*.json
+/[Aa]ssets/[Ss]treaming[Aa]ssets/*.json.meta
 
 # Never ignore Asset meta data
 !/[Aa]ssets/**/*.meta

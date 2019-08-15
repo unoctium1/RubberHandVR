@@ -7,6 +7,11 @@ namespace HandVR
 {
     namespace ModificationExamples
     {
+
+        /// <summary>
+        /// Example of a hand modification - displaces the given hand to the value in displacement. If usePostProcess is checked, actual functionality is in DisplacementPostProcess.
+        /// Otherwise, functionality is in HandModifierManager. Both illustrate different ways to achieve similar effects.
+        /// </summary>
         public class HandSlider : MonoBehaviour, IHand
         {
 
@@ -22,7 +27,7 @@ namespace HandVR
             [SerializeField]
             private float displacement;
 
-            [Header("Non post process values")]
+            [Header("Non post process values - Uses Camera Offset")]
             [SerializeField]
             private float xTiltDestination = 5;
             [SerializeField]

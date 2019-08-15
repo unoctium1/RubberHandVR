@@ -40,6 +40,9 @@ namespace HandVR
         /// </summary>
         void StopTest();
 
+        /// <summary>
+        /// Returns true if the test is in progress
+        /// </summary>
         bool IsRunning { get; }
     }
 

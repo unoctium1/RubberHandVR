@@ -1,0 +1,121 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1001 &199070072429997182
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 3206003244557091158, guid: 1058e94dde6f91e408fb90048539d8d6,
+        type: 3}
+      propertyPath: m_Name
+      value: GameManagerSampleScene
+      objectReference: {fileID: 0}
+    - target: {fileID: 3206003244557091156, guid: 1058e94dde6f91e408fb90048539d8d6,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3206003244557091156, guid: 1058e94dde6f91e408fb90048539d8d6,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3206003244557091156, guid: 1058e94dde6f91e408fb90048539d8d6,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3206003244557091156, guid: 1058e94dde6f91e408fb90048539d8d6,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3206003244557091156, guid: 1058e94dde6f91e408fb90048539d8d6,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3206003244557091156, guid: 1058e94dde6f91e408fb90048539d8d6,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3206003244557091156, guid: 1058e94dde6f91e408fb90048539d8d6,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3206003244557091156, guid: 1058e94dde6f91e408fb90048539d8d6,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3206003244557091156, guid: 1058e94dde6f91e408fb90048539d8d6,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3206003244557091156, guid: 1058e94dde6f91e408fb90048539d8d6,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3206003244557091156, guid: 1058e94dde6f91e408fb90048539d8d6,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 343422031790945554, guid: 1058e94dde6f91e408fb90048539d8d6,
+        type: 3}
+      propertyPath: tests.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 343422031790945554, guid: 1058e94dde6f91e408fb90048539d8d6,
+        type: 3}
+      propertyPath: modifiers.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 343422031790945554, guid: 1058e94dde6f91e408fb90048539d8d6,
+        type: 3}
+      propertyPath: tests.Array.data[0].testObject
+      value: 
+      objectReference: {fileID: 7136974374164875726, guid: 6421b12b56fe0d44991fdc5072af6ba1,
+        type: 3}
+    - target: {fileID: 343422031790945554, guid: 1058e94dde6f91e408fb90048539d8d6,
+        type: 3}
+      propertyPath: tests.Array.data[0].testName
+      value: Button Task - Simple pressing task
+      objectReference: {fileID: 0}
+    - target: {fileID: 343422031790945554, guid: 1058e94dde6f91e408fb90048539d8d6,
+        type: 3}
+      propertyPath: tests.Array.data[1].testObject
+      value: 
+      objectReference: {fileID: 7141484376843232717, guid: 39723076b67f5a84b9c1083f6601f252,
+        type: 3}
+    - target: {fileID: 343422031790945554, guid: 1058e94dde6f91e408fb90048539d8d6,
+        type: 3}
+      propertyPath: tests.Array.data[1].testName
+      value: Block Sorting Task - SImple grasping task
+      objectReference: {fileID: 0}
+    - target: {fileID: 343422031790945554, guid: 1058e94dde6f91e408fb90048539d8d6,
+        type: 3}
+      propertyPath: modifiers.Array.data[0]
+      value: 
+      objectReference: {fileID: 3808817569777051775, guid: 6336cc8da8e95324897cbf6c2e4b0670,
+        type: 3}
+    - target: {fileID: 343422031790945554, guid: 1058e94dde6f91e408fb90048539d8d6,
+        type: 3}
+      propertyPath: modifiers.Array.data[1]
+      value: 
+      objectReference: {fileID: 5730678311512912489, guid: 57d8d4b21d0b10c4b9b0b08032cb768a,
+        type: 3}
+    - target: {fileID: 343422031790945554, guid: 1058e94dde6f91e408fb90048539d8d6,
+        type: 3}
+      propertyPath: modifiers.Array.data[2]
+      value: 
+      objectReference: {fileID: 290404017019118571, guid: 00adacb918452d34ca00d53fb11f4342,
+        type: 3}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 1058e94dde6f91e408fb90048539d8d6, type: 3}

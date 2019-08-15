@@ -650,17 +650,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8833c493f388e714f96fdcbfd33ef5e5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tests:
-  - testObject: {fileID: 7136974374164875726, guid: 6421b12b56fe0d44991fdc5072af6ba1,
-      type: 3}
-    testName: Button Press - Reaction Time test
-  - testObject: {fileID: 7141484376843232717, guid: 39723076b67f5a84b9c1083f6601f252,
-      type: 3}
-    testName: Block Game - Sorting/Grasping Test
-  modifiers:
-  - {fileID: 5730678311512912489, guid: 57d8d4b21d0b10c4b9b0b08032cb768a, type: 3}
-  - {fileID: 3808817569777051775, guid: 6336cc8da8e95324897cbf6c2e4b0670, type: 3}
-  - {fileID: 290404017019118571, guid: 00adacb918452d34ca00d53fb11f4342, type: 3}
+  tests: []
+  modifiers: []
   modPanelPrefab: {fileID: 4518438555526172595, guid: ef4caab421896bf459acfcc05ddf3cca,
     type: 3}
   modPanelParent: {fileID: 7605469672622704240}
@@ -681,8 +672,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 315c4e7ef045fd541b4803a956415ef4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _cameraParent: {fileID: 0}
-  _scaleCamera: 0
   cameraProvider: {fileID: 0}
   displacementProvider: {fileID: 0}
   _scaleFactor: 2

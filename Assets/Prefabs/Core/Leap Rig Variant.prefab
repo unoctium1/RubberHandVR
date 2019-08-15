@@ -82,25 +82,6 @@ AudioListener:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 890983552}
   m_Enabled: 1
---- !u!114 &2962143949235136624
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2577502508869019438}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 48b1b3739598bed4e9ea244e93b7e533, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  editTimePose: 0
-  _inputLeapProvider: {fileID: 2474380237227615828}
-  dataUpdateMode: 0
-  passthroughOnly: 0
-  displacement: 1
-  currentDisplacement: 1
-  active: 0
 --- !u!1 &7000013105696767106
 GameObject:
   m_ObjectHideFlags: 0
@@ -267,12 +248,12 @@ PrefabInstance:
         type: 3}
       propertyPath: _leapProvider
       value: 
-      objectReference: {fileID: 2962143949235136624}
+      objectReference: {fileID: 2474380237227615828}
     - target: {fileID: 114560916027640892, guid: 33edf201cbc6fe645ad9078697cd2aea,
         type: 3}
       propertyPath: _leapProvider
       value: 
-      objectReference: {fileID: 2962143949235136624}
+      objectReference: {fileID: 2474380237227615828}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 33edf201cbc6fe645ad9078697cd2aea, type: 3}
 --- !u!4 &925757646328473180 stripped
@@ -300,6 +281,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 925757646328473180}
     m_Modifications:
+    - target: {fileID: 114252805458954098, guid: 9361ab6d13ee87644bc370bccb524144,
+        type: 3}
+      propertyPath: manager
+      value: 
+      objectReference: {fileID: 959825286344731630}
     - target: {fileID: 1180994678239160, guid: 9361ab6d13ee87644bc370bccb524144, type: 3}
       propertyPath: m_Name
       value: VR Oculus-style Controller (Right)
@@ -348,11 +334,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 114252805458954098, guid: 9361ab6d13ee87644bc370bccb524144,
-        type: 3}
-      propertyPath: manager
-      value: 
-      objectReference: {fileID: 959825286344731630}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9361ab6d13ee87644bc370bccb524144, type: 3}
 --- !u!114 &2473926737699635769 stripped
@@ -374,6 +355,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 925757646328473180}
     m_Modifications:
+    - target: {fileID: 114446365300099102, guid: 72368278d054cda4bb18e5aa08ce971d,
+        type: 3}
+      propertyPath: manager
+      value: 
+      objectReference: {fileID: 959825286344731630}
     - target: {fileID: 1257637052428748, guid: 72368278d054cda4bb18e5aa08ce971d, type: 3}
       propertyPath: m_Name
       value: VR Vive-style Controller (Right)
@@ -422,11 +408,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 114446365300099102, guid: 72368278d054cda4bb18e5aa08ce971d,
-        type: 3}
-      propertyPath: manager
-      value: 
-      objectReference: {fileID: 959825286344731630}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 72368278d054cda4bb18e5aa08ce971d, type: 3}
 --- !u!114 &2474261031208296116 stripped
@@ -448,6 +429,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 925757646328473180}
     m_Modifications:
+    - target: {fileID: 114384944290433142, guid: 80e9754fad44e784f97f6c76a2c7255b,
+        type: 3}
+      propertyPath: manager
+      value: 
+      objectReference: {fileID: 959825286344731630}
     - target: {fileID: 1393620680427892, guid: 80e9754fad44e784f97f6c76a2c7255b, type: 3}
       propertyPath: m_Name
       value: VR Vive-style Controller (Left)
@@ -496,11 +482,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 114384944290433142, guid: 80e9754fad44e784f97f6c76a2c7255b,
-        type: 3}
-      propertyPath: manager
-      value: 
-      objectReference: {fileID: 959825286344731630}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 80e9754fad44e784f97f6c76a2c7255b, type: 3}
 --- !u!114 &2474358080731340923 stripped
@@ -524,7 +505,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1193063156239688, guid: dae2e2be31c98324eac460f702db97e9, type: 3}
       propertyPath: m_Name
-      value: Leap Rig Variant
+      value: Leap Rig
       objectReference: {fileID: 0}
     - target: {fileID: 114121827862505544, guid: dae2e2be31c98324eac460f702db97e9,
         type: 3}
@@ -580,11 +561,6 @@ PrefabInstance:
       propertyPath: ModelPool.Array.size
       value: 2
       objectReference: {fileID: 0}
-    - target: {fileID: 114473456793702560, guid: dae2e2be31c98324eac460f702db97e9,
-        type: 3}
-      propertyPath: _leapProvider
-      value: 
-      objectReference: {fileID: 2962143949235136624}
     - target: {fileID: 114473456793702560, guid: dae2e2be31c98324eac460f702db97e9,
         type: 3}
       propertyPath: ModelPool.Array.data[0].IsEnabled
@@ -646,12 +622,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: abb0e8dd6c809854f8fea5e0976884f8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!1 &2577502508869019438 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 1671192356237494, guid: dae2e2be31c98324eac460f702db97e9,
-    type: 3}
-  m_PrefabInstance: {fileID: 2576286658281232280}
-  m_PrefabAsset: {fileID: 0}
 --- !u!4 &2580810708547851358 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4554978340012998, guid: dae2e2be31c98324eac460f702db97e9,

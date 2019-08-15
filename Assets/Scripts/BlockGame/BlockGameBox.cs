@@ -7,6 +7,9 @@ namespace HandVR
 {
     namespace BlockGame
     {
+        /// <summary>
+        /// Behaviour of boxes in the block task
+        /// </summary>
         internal class BlockGameBox : MonoBehaviour
         {
 

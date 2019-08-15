@@ -8,6 +8,10 @@ namespace HandVR
 {
     namespace BlockGame
     {
+
+        /// <summary>
+        /// Behaviour of blocks in the block sorting task
+        /// </summary>
         public class Block : MonoBehaviour
         {
             [SerializeField]

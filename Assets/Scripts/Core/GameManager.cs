@@ -8,6 +8,9 @@ namespace HandVR
 {
     namespace Core
     {
+        /// <summary>
+        /// Game Manager - handles core interface and runs tests and modification. Also includes coroutines for running demo loop and saving data.
+        /// </summary>
         public class GameManager : MonoBehaviour
         {
 
@@ -103,16 +106,27 @@ namespace HandVR
             #endregion //UNITY_MONOBEHAVIOUR_METHODS
 
             #region PUBLIC_METHODS
+
+            /// <summary>
+            /// Sets the right hand as the active hand
+            /// </summary>
             public void SetRightHand()
             {
                 isRightHand = true;
             }
 
+            /// <summary>
+            /// Sets the left hand as the active hand
+            /// </summary>
             public void SetLeftHand()
             {
                 isRightHand = false;
             }
 
+            /// <summary>
+            /// Writes data to a file 
+            /// \todo Currently, json string is always empty
+            /// </summary>
             public void WriteData()
             {
 
@@ -122,11 +136,18 @@ namespace HandVR
                 File.WriteAllText(path + "\\" + fileName, json);
             }
 
+            /// <summary>
+            /// Starts demo loop as coroutine
+            /// </summary>
             public void StartDemo()
             {
                 StartCoroutine(DemoLoop());
             }
 
+            /// <summary>
+            /// DemoLoop process
+            /// </summary>
+            /// <returns></returns>
             public IEnumerator DemoLoop()
             {
                 yield return CycleTestRoutine(1f);

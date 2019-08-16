@@ -1,0 +1,4 @@
+<map id="HandVR.Core.GamePanel.StopPressed" name="HandVR.Core.GamePanel.StopPressed">
+<area shape="rect" id="node1" title="Stops the test and destroys the gameObject" alt="" coords="5,5,209,47"/>
+<area shape="rect" id="node2" href="$interface_hand_v_r_1_1_i_test.html#a94cdcf39ccd32b5cd99a818ab0e8c241" title="Stops test early" alt="" coords="257,13,416,39"/>
+</map>

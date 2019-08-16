@@ -1,0 +1,5 @@
+<map id="HandVR.ITest" name="HandVR.ITest">
+<area shape="rect" id="node1" title="Interface for test activities" alt="" coords="175,5,277,32"/>
+<area shape="rect" id="node2" href="$class_hand_v_r_1_1_block_game_1_1_block_game_manager.html" title="Example setup for a test object &#45; Creates a variety of colored blocks which the user must then sort i..." alt="" coords="5,80,220,121"/>
+<area shape="rect" id="node3" href="$class_hand_v_r_1_1_button_game_1_1_button_game_manager.html" title="Sample test &#45; users must hit the colored button matching the central pattern" alt="" coords="245,80,434,121"/>
+</map>

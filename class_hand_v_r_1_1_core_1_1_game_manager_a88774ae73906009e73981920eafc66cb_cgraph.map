@@ -1,0 +1,4 @@
+<map id="HandVR.Core.GameManager.StartDemo" name="HandVR.Core.GameManager.StartDemo">
+<area shape="rect" id="node1" title="Starts demo loop as coroutine" alt="" coords="5,5,200,47"/>
+<area shape="rect" id="node2" href="$class_hand_v_r_1_1_core_1_1_game_manager.html#ac608c730b704f472c9dda7da08535e73" title="DemoLoop process" alt="" coords="248,5,443,47"/>
+</map>

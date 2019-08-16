@@ -1,0 +1,6 @@
+<map id="Graphical Class Hierarchy" name="Graphical Class Hierarchy">
+<area shape="rect" id="node1" href="$interface_hand_v_r_1_1_i_test_data.html" title="Interface for results of tests" alt="" coords="5,56,135,83"/>
+<area shape="rect" id="node2" href="$struct_hand_v_r_1_1_block_game_1_1_block_data.html" title="Struct for output data &#45; stores time taken to complete each trial" alt="" coords="187,5,394,32"/>
+<area shape="rect" id="node3" href="$struct_hand_v_r_1_1_button_game_1_1_button_data.html" title="Struct for storing button data &#45; logs how long it took for a trial to complete and whether it was the..." alt="" coords="183,56,399,83"/>
+<area shape="rect" id="node4" href="$struct_hand_v_r_1_1_core_1_1_game_manager_1_1_total_data.html" title=" " alt="" coords="193,107,388,149"/>
+</map>

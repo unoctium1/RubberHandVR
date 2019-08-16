@@ -1,0 +1,4 @@
+<map id="HandVR.HandModifierManager.XRProviderOffsetToVector3" name="HandVR.HandModifierManager.XRProviderOffsetToVector3">
+<area shape="rect" id="node1" title="Utility function to return the offset of the given camera provider as a vector3" alt="" coords="256,5,459,47"/>
+<area shape="rect" id="node2" href="$class_hand_v_r_1_1_hand_modifier_manager.html#a6fe3202a2de969e0cffd3d0b5bdc778e" title="Alternate method for setting displacement &#45; sets camera offset to given values" alt="" coords="5,5,208,47"/>
+</map>

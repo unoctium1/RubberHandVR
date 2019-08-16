@@ -1,0 +1,9 @@
+<map id="HandVR.Core.GamePanel.Init" name="HandVR.Core.GamePanel.Init">
+<area shape="rect" id="node1" title="Sets up the test for the given testObject &#45; called in GameManager" alt="" coords="5,64,200,91"/>
+<area shape="rect" id="node2" href="$class_hand_v_r_1_1_core_1_1_game_panel.html#af391ca20ee46f160955572ae9772551b" title="Creates the test gameObject and starts the test" alt="" coords="248,23,453,65"/>
+<area shape="rect" id="node6" href="$class_hand_v_r_1_1_core_1_1_game_panel.html#addc7eefe4b223a9dba7cfc9b1c5e6923" title="Stops the test and destroys the gameObject" alt="" coords="249,89,453,130"/>
+<area shape="rect" id="node3" href="$class_hand_v_r_1_1_core_1_1_game_panel.html#a114172dea2a879ca9f2b204773d910cf" title="Runs the test for the given number of minutes" alt="" coords="501,31,732,57"/>
+<area shape="rect" id="node4" href="$interface_hand_v_r_1_1_i_test.html#ae65b886931eee66cc12721408bec77fa" title="Sets total time to perform the trials" alt="" coords="780,5,979,32"/>
+<area shape="rect" id="node5" href="$interface_hand_v_r_1_1_i_test.html#acaaf3c9c73bc60fafbebb870f2317794" title="Begins performing the test" alt="" coords="800,56,959,83"/>
+<area shape="rect" id="node7" href="$interface_hand_v_r_1_1_i_test.html#a94cdcf39ccd32b5cd99a818ab0e8c241" title="Stops test early" alt="" coords="537,96,696,123"/>
+</map>

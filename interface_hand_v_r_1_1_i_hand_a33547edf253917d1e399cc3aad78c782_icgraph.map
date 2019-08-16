@@ -1,0 +1,5 @@
+<map id="HandVR.IHand.StartEffect" name="HandVR.IHand.StartEffect">
+<area shape="rect" id="node1" title="Begins the modification effect" alt="" coords="491,13,663,39"/>
+<area shape="rect" id="node2" href="$class_hand_v_r_1_1_core_1_1_mod_panel.html#a91cd27914c7a8ebe783d50d93d849f9c" title=" " alt="" coords="248,5,443,47"/>
+<area shape="rect" id="node3" href="$class_hand_v_r_1_1_core_1_1_mod_panel.html#a9040cff1091a4c7cebb7261be4443fb7" title=" " alt="" coords="5,13,200,39"/>
+</map>

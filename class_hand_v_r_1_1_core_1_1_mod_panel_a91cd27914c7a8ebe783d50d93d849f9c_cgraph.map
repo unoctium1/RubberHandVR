@@ -1,0 +1,5 @@
+<map id="HandVR.Core.ModPanel.StartPressed" name="HandVR.Core.ModPanel.StartPressed">
+<area shape="rect" id="node1" title=" " alt="" coords="5,35,200,76"/>
+<area shape="rect" id="node2" href="$class_hand_v_r_1_1_core_1_1_mod_panel.html#a3ce1a31bfdbca7a5cdc263854704655d" title=" " alt="" coords="248,5,452,47"/>
+<area shape="rect" id="node3" href="$interface_hand_v_r_1_1_i_hand.html#a33547edf253917d1e399cc3aad78c782" title="Begins the modification effect" alt="" coords="264,71,436,98"/>
+</map>

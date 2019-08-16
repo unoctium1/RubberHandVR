@@ -1,0 +1,4 @@
+<map id="HandVR.BlockGame.BlockGameManager.Trial" name="HandVR.BlockGame.BlockGameManager.Trial">
+<area shape="rect" id="node1" title="Single instance of a trial &#45; spawns in a set number of blocks, which users must then sort into matchi..." alt="" coords="268,5,483,47"/>
+<area shape="rect" id="node2" href="$class_hand_v_r_1_1_block_game_1_1_block_game_manager.html#a26cdc033ac60e4a9d36f652cc9ba0ccf" title="Begins a test. Trials will continue to be created until numMins has elapsed" alt="" coords="5,5,220,47"/>
+</map>

@@ -1,0 +1,5 @@
+<map id="HandVR.HandModifierManager.LerpCameraProvider" name="HandVR.HandModifierManager.LerpCameraProvider">
+<area shape="rect" id="node1" title="Alternate method for setting displacement &#45; sets camera offset to given values" alt="" coords="5,39,208,80"/>
+<area shape="rect" id="node2" href="$class_hand_v_r_1_1_hand_modifier_manager.html#a612fc627a8b5106797f11fa329fa2a80" title="Utility function to set the offset for the given camera provider from the given Vector" alt="" coords="256,5,459,47"/>
+<area shape="rect" id="node3" href="$class_hand_v_r_1_1_hand_modifier_manager.html#ae2e14d02db366177ed79bc6dc377e952" title="Utility function to return the offset of the given camera provider as a vector3" alt="" coords="256,71,459,112"/>
+</map>

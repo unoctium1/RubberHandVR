@@ -1,0 +1,6 @@
+<map id="HandVR.ITest.SetNumMinutes" name="HandVR.ITest.SetNumMinutes">
+<area shape="rect" id="node1" title="Sets total time to perform the trials" alt="" coords="780,13,979,39"/>
+<area shape="rect" id="node2" href="$class_hand_v_r_1_1_core_1_1_game_panel.html#a114172dea2a879ca9f2b204773d910cf" title="Runs the test for the given number of minutes" alt="" coords="501,13,732,39"/>
+<area shape="rect" id="node3" href="$class_hand_v_r_1_1_core_1_1_game_panel.html#af391ca20ee46f160955572ae9772551b" title="Creates the test gameObject and starts the test" alt="" coords="248,5,453,47"/>
+<area shape="rect" id="node4" href="$class_hand_v_r_1_1_core_1_1_game_panel.html#a684757a0514ce028701a43f865fa497a" title="Sets up the test for the given testObject &#45; called in GameManager" alt="" coords="5,13,200,39"/>
+</map>

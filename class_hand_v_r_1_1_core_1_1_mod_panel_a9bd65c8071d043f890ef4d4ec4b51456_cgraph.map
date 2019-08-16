@@ -1,0 +1,5 @@
+<map id="HandVR.Core.ModPanel.ResetPressed" name="HandVR.Core.ModPanel.ResetPressed">
+<area shape="rect" id="node1" title=" " alt="" coords="5,35,207,76"/>
+<area shape="rect" id="node2" href="$class_hand_v_r_1_1_core_1_1_mod_panel.html#a3ce1a31bfdbca7a5cdc263854704655d" title=" " alt="" coords="255,5,459,47"/>
+<area shape="rect" id="node3" href="$interface_hand_v_r_1_1_i_hand.html#abb1bee240fafe1352e6a35b7978c3fa9" title="Resets the modification to its initial position" alt="" coords="284,71,429,98"/>
+</map>

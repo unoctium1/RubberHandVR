@@ -1,0 +1,4 @@
+<map id="HandVR.ButtonGame.ButtonData" name="HandVR.ButtonGame.ButtonData">
+<area shape="rect" id="node1" title="Struct for storing button data &#45; logs how long it took for a trial to complete and whether it was the..." alt="" coords="5,80,221,107"/>
+<area shape="rect" id="node2" href="$interface_hand_v_r_1_1_i_test_data.html" title="Interface for results of tests" alt="" coords="75,5,152,32"/>
+</map>

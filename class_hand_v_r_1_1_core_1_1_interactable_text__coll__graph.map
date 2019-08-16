@@ -1,0 +1,4 @@
+<map id="HandVR.Core.InteractableText" name="HandVR.Core.InteractableText">
+<area shape="rect" id="node1" title="Behaviour for instruction text &#45; displays a set message until the user hits the confirm button...." alt="" coords="5,80,203,107"/>
+<area shape="rect" id="node2" title=" " alt="" coords="49,5,159,32"/>
+</map>

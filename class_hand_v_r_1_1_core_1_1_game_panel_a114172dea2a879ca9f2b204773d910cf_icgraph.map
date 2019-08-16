@@ -1,0 +1,5 @@
+<map id="HandVR.Core.GamePanel.StartTest" name="HandVR.Core.GamePanel.StartTest">
+<area shape="rect" id="node1" title="Runs the test for the given number of minutes" alt="" coords="501,13,732,39"/>
+<area shape="rect" id="node2" href="$class_hand_v_r_1_1_core_1_1_game_panel.html#af391ca20ee46f160955572ae9772551b" title="Creates the test gameObject and starts the test" alt="" coords="248,5,453,47"/>
+<area shape="rect" id="node3" href="$class_hand_v_r_1_1_core_1_1_game_panel.html#a684757a0514ce028701a43f865fa497a" title="Sets up the test for the given testObject &#45; called in GameManager" alt="" coords="5,13,200,39"/>
+</map>

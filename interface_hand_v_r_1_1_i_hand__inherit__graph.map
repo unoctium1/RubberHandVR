@@ -1,0 +1,5 @@
+<map id="HandVR.IHand" name="HandVR.IHand">
+<area shape="rect" id="node1" title="Interface for hand modifications" alt="" coords="169,5,276,32"/>
+<area shape="rect" id="node2" href="$class_hand_v_r_1_1_modification_examples_1_1_hand_scaler.html" title="Example of a hand modification &#45; scales the given hand to the value in scaleFactor...." alt="" coords="5,80,211,121"/>
+<area shape="rect" id="node3" href="$class_hand_v_r_1_1_modification_examples_1_1_hand_slider.html" title="Example of a hand modification &#45; displaces the given hand to the value in displacement...." alt="" coords="235,80,440,121"/>
+</map>

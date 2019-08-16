@@ -4,7 +4,7 @@ An extendable toolkit for exploring neuroplasticity in VR with the leap motion
 
 [Script Reference](https://unoctium1.github.io/RubberHandVR/)
 
-Requires a leap motion and an OpenVR compatible VR headset.
+Requires a leap motion and an OpenVR compatible VR headset. Created with Unity 2018.4.
 
 Tested on both the Oculus Rift and the HTC vive, but *should* work with any OpenVR headset.
 

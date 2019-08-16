@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.16"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>Rubber hand VR: Main Page</title>
+<title>Rubber Hand VR: Rubber Hand VR</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -30,7 +30,7 @@
  <tr style="height: 56px;">
   <td id="projectlogo"><img alt="Logo" src="emllogo.jpg"/></td>
   <td id="projectalign" style="padding-left: 0.5em;">
-   <div id="projectname">Rubber hand VR
+   <div id="projectname">Rubber Hand VR
    &#160;<span id="projectnumber">V1.0</span>
    </div>
    <div id="projectbrief">Toolkit for developing VR neuroplasticity experiments relying on the leap motion hand tracker</div>
@@ -87,11 +87,29 @@ $(document).ready(function(){initNavTree('index.html','');});
 </iframe>
 </div>
 
-<div class="header">
+<div class="PageDoc"><div class="header">
   <div class="headertitle">
-<div class="title">Rubber hand VR Documentation</div>  </div>
+<div class="title">Rubber Hand VR </div>  </div>
 </div><!--header-->
 <div class="contents">
+<div class="textblock"><p>An extendable toolkit for exploring neuroplasticity in VR with the leap motion</p>
+<p><a href="https://unoctium1.github.io/RubberHandVR/">Script Reference</a></p>
+<p>Requires a leap motion and an OpenVR compatible VR headset. Created with Unity 2018.4.</p>
+<p>Tested on both the Oculus Rift and the HTC vive, but <em>should</em> work with any OpenVR headset.</p>
+<p>Rubber Hand VR is a framework for creating study designs involving modifying virtual tracked hands. The project aims to both replicate and extend the <a href="https://en.wikipedia.org/wiki/Body_transfer_illusion">rubber hand experiment</a>. Users will perform basic tasks in VR, such as pressing buttons or sorting blocks, and various hand modifications can be triggered - altering their virtual hand's shape, position, etc. The project is designed to allow developers to create custom tasks and modifications to suit a variety of different purposes. Rubber Hand VR also includes a customizable UI, to allow users to control which tasks are being performed, and for how long.</p>
+<h1>Using the prebuilt app</h1>
+<p>Download the executable folder in the releases tab.</p>
+<p>The app expects 2 users: A study conductor, to trigger tasks and hand modifications, and a participant, to wear the headset and perform tasks. If only one user is available, there is an option to turn on a demo reel - the app will run through all available tasks and modifications, with no required desktop interaction.</p>
+<p>If both users are available, the conductor will have a desktop interface. Tasks are on the far left of the screen, while modifications are on the bottom left. To turn on a task, set a time in minutes in the middle input field, then click "start." The participant will then be presented with an instruction screen, and, upon reading and accepting the instruction screen, they will perform the task for the set time. If the conductor wishes to stop the task early, they can hit the "stop" button. If they wish to trigger a modification, they must first hit either the "use right hand" or "use left hand" button. They then can hit the "start" modification button. To restore the hand to its original state, they must hit "reset."</p>
+<h1>Building custom modifications</h1>
+<p>To build custom modifications, or to change the existing ones, download the unitypackage in the releases tab. Add the unity package to a clean project with the leap motion orion unity SDK and the Leap interaction engine. The Leap hands module is not necessary, but is required to run the sample scene, and is recommended. Create a copy of the TemplateScene scene file.</p>
+<p>To build a custom interaction, create a monobehaviour class that implements <a href="https://unoctium1.github.io/RubberHandVR/interface_hand_v_r_1_1_i_hand.html">the IHand interface</a>. It is recommended to keep most of the core functionality of the modification outside of this class. Instead, create static methods that perform the desired transformations in the <a href="https://unoctium1.github.io/RubberHandVR/class_hand_v_r_1_1_hand_modifier_manager.html">HandModifierManager class</a> or use a Leap PostProcessProvider (as an example, see the <a href="https://unoctium1.github.io/RubberHandVR/class_hand_v_r_1_1_modification_examples_1_1_displacement_post_process_provider.html">DisplacementPostProcessProvider</a>. For modifications that require attaching objects to a hand, use the Leap attachment hand object. Example hand modifications are in the <a href="https://unoctium1.github.io/RubberHandVR/namespace_hand_v_r_1_1_modification_examples.html">ModificationExamples namespace</a>.</p>
+<p>Once the modification is created, create a prefab variant of the 'mod' prefab in the prefabs folder. Add the component implementing the IHand interface, and then add the new prefab you've created to the modlist in the GameManager in your scene.</p>
+<h1>Building custom tasks</h1>
+<p>To build custom modifications, or to change the existing ones, download the unitypackage in the releases tab. Add the unity package to a clean project with the leap motion orion unity SDK and the Leap interaction engine. The Leap hands module is not necessary, but is required to run the sample scene, and is recommended. Create a copy of the TemplateScene scene file.</p>
+<p>To build a custom task, create a monobehaviour class that implements <a href="https://unoctium1.github.io/RubberHandVR/interface_hand_v_r_1_1_i_test.html">the ITest interface</a>. As examples of how to create a task, see the ButtonGame or BlockGame namespaces and prefabs. Then, create a prefab with your behaviour and add it to the test list in the the gamemanager, along with a brief label describing it.</p>
+<p>Along with creating a behaviour for the task, you should also implement the <a href="https://unoctium1.github.io/RubberHandVR/interface_hand_v_r_1_1_i_test_data.html">ITestData</a> interface. Create a struct to record whatever data your task might be recording. This could include time to create a trial, accuracy, or any other metrics. </p>
+</div></div><!-- PageDoc -->
 </div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->

@@ -22,7 +22,7 @@ for the JavaScript code in this file
 */
 var NAVTREE =
 [
-  [ "Rubber hand VR", "index.html", [
+  [ "Rubber Hand VR", "index.html", [
     [ "Todo List", "todo.html", null ],
     [ "Packages", "namespaces.html", [
       [ "Packages", "namespaces.html", "namespaces_dup" ]
